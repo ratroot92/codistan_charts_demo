@@ -2,12 +2,18 @@ const express = require('express')
 var cors = require('cors')
 const path=require('path')
 const app = express()
-const port = 3000
+const port = 80
 app.use(cors())
 
 
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/AnyChart.html'));
+});
+app.get('/barchart', function(req, res) {
+  res.sendFile(path.join(__dirname + '/BarChart.html'));
+});
+app.get('/highchart', function(req, res) {
+  res.sendFile(path.join(__dirname + '/HighChart2.html'));
 });
 
 app.get('/api', (req, res) => {
