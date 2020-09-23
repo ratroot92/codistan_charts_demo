@@ -2,7 +2,7 @@ const express = require('express')
 var cors = require('cors')
 const path=require('path')
 const app = express()
-const port = 80
+
 app.use(cors())
 
 
@@ -238,6 +238,6 @@ app.get('/api2', (req, res) => {
 
 
 
-  app.listen(port, "0.0.0.0", () => {
-    console.log(`Listening to requests on http://0.0.0.0:${port}`);
-  });
+  const port = process.env.PORT || 3000;
+
+  app.listen(port, () => console.log(`Listening on ${port}`));
