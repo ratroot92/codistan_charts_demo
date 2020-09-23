@@ -1,0 +1,198 @@
+<!-- Totorial https://www.anychart.com/products/anymap/gallery/Maps_General_Features/World_Choropleth_Map.php
+              https://playground.anychart.com/gallery/src/Maps_General_Features/World_Choropleth_Map
+     -->
+     <html>
+
+        <head>
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+          <link rel="stylesheet" type="text/css" href="https://github.com/downloads/lafeber/world-flags-sprite/flags32.css">
+
+          <style type="text/css">
+           #container {
+  height: 500px; 
+  width: 800px; 
+  margin: 0 auto; 
+}
+
+.highcharts-tooltip>span {
+  padding: 10px;
+  white-space: normal !important;
+  width: 200px;
+}
+
+.loading {
+  margin-top: 10em;
+  text-align: center;
+  color: gray;
+}
+
+.f32 .flag {
+  vertical-align: middle !important;
+}
+          </style>
+        </head>
+        
+        <body>
+        
+          <!-- start -->
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                  <a class="navbar-brand" href="#">Navbar</a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                          <a class="nav-link" href="./AnyChart.html">Home </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="./HighChart2.html">HighChart<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">BarChart</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            More
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="./HighChart2.html">HighChart 2</a>
+                            <a class="dropdown-item" href="./BarChart.html">BarChart</a>
+                            <a class="dropdown-item" href="./HighChart.html">HighChart 1</a>
+                          </div>
+                        </li>
+                      </ul>
+                  </div>
+                </nav>
+              </div>
+        
+        
+            </div>
+          </div>
+        
+          <div class="col-md-12 border">
+            <div id="container"></div>
+          </div>
+        
+  
+
+          <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+          <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+            <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+<script src="https://code.highcharts.com/maps/modules/data.js"></script>
+<script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/maps/modules/offline-exporting.js"></script>
+<script src="https://code.highcharts.com/mapdata/custom/world.js"></script>
+
+<!-- Flag sprites service provided by Martijn Lafeber, https://github.com/lafeber/world-flags-sprite/blob/master/LICENSE -->
+
+<div id="container"></div>
+
+<script>
+    
+    Highcharts.getJSON('http://127.0.0.1:3000/api2', function (data) {
+console.log(data)
+// Prevent logarithmic errors in color calulcation
+data.forEach(function (p) {
+    console.log(p.total)
+  p.total = (p.total < 1 ? 1 : p.total);
+});
+
+// Initiate the chart
+Highcharts.mapChart('container', {
+
+  chart: {
+    map: 'custom/world'
+  },
+
+  title: {
+    text: 'Top Global Investment in HIV Detection ',
+    style:{
+        color:'green',
+        backgroundColor:'',
+        fontWeight:'700',
+
+    }
+  },
+
+  legend: {
+    title: {
+      text: 'Global Investment',
+      style: {
+        color: ( // theme
+          Highcharts.defaultOptions &&
+          Highcharts.defaultOptions.legend &&
+          Highcharts.defaultOptions.legend.title &&
+          Highcharts.defaultOptions.legend.title.style &&
+          Highcharts.defaultOptions.legend.title.style.color
+        ) || 'black'
+      }
+    }
+  },
+
+  mapNavigation: {
+    enabled: true,
+    buttonOptions: {
+      verticalAlign: 'bottom'
+    }
+  },
+
+  tooltip: {
+    backgroundColor: 'none',
+    borderWidth: 0,
+    shadow: false,
+    useHTML: true,
+    padding: 0,
+    pointFormat: '<span class="f32"><span class="flag {point.properties.hc-key}">' +
+      '</span></span> <span style="color:black;font-weight:bold;">{point.name}</span><br>' +
+      '<img src="https://www.flaticon.com/svg/static/icons/svg/761/761534.svg" style="width:15px;height:15px;margin-right:3px;margin-top:2px;"/><span style="font-size:9px"><span class="font-weight-bold" style="color:#ee4036" ">Public :</span> <span style="color:#ee4036;font-weight:bold;">{point.public}  M</span></span><br>'+
+      '<img src="https://www.flaticon.com/svg/static/icons/svg/620/620807.svg" style="width:15px;height:15px;margin-right:3px;margin-top:2px;"/><span style="font-size:9px"><span class="font-weight-bold" style="color:#262261;" ">philanthropic :</span>  <span style="color:#262261;;font-weight:bold;">{point.philanthropic} M</span></span><br>'+
+      '<img src="https://www.flaticon.com/svg/static/icons/svg/1253/1253360.svg" style="width:15px;height:15px;margin-right:3px;margin-top:2px;"/><span style="font-size:9px"><span class="font-weight-bold" style="color:#006400;">Commercial :</span> <span style="color:#006400;;font-weight:bold;">{point.commercial} M</span></span><br>'+
+      '<img src="https://www.flaticon.com/premium-icon/icons/svg/2697/2697325.svg" style="width:15px;height:15px;margin-right:3px;margin-top:2px;"/><span style="font-size:9px"><span class="font-weight-bold" style="color:##42f2f5;">Total :</span>  <span style="color:##42f2f5;;font-weight:bold;">{point.total} M</span></span><br>',
+    positioner: function () {
+      return { x: 0, y: 220 };
+    }
+  },
+
+  colorAxis: {
+    min: 1,
+    max: 1000,
+    type: 'logarithmic'
+  },
+
+  series: [{
+    data: data,
+    joinBy: ['iso-a3', 'code3'],
+    name: 'Investment By Sectors',
+    states: {
+      hover: {
+        color: '#a4edba'
+      }
+    }
+  }]
+});
+});
+
+</script>
+        </body>
+        
+        </html>
+
+
+        <!-- json data -->
+        <!-- https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/samples/data/world-population-density.json -->
+        <!-- https://www.highcharts.com/demo/maps/tooltip -->
