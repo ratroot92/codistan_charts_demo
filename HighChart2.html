@@ -11,8 +11,8 @@
 
           <style type="text/css">
            #container {
-  height: 500px; 
-  width: 800px; 
+  height: 700px; 
+  width: 100%;
   margin: 0 auto; 
 }
 
@@ -30,6 +30,30 @@
 
 .f32 .flag {
   vertical-align: middle !important;
+}
+.custom-badge{
+  height: 30px;
+  width: 10px;
+  border-radius: 0px!important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+li{
+  margin-top: 5px;;
+}
+
+.custom-name{
+font-weight: bold;
+font-size: 14px;
+margin-left: 10px;
+margin-top: 5px;
+;
+}
+
+.custom-name:hover{
+color:green;
+;
 }
           </style>
         </head>
@@ -76,12 +100,40 @@
         
             </div>
           </div>
-        
-          <div class="col-md-12 border">
+        <div class="row">
+          <div class="col-md-10 border">
             <div id="container"></div>
           </div>
+          <div class="col-md-2 border">
+         
+                <div class="row d-flex flex-row justify-content-center align-items-center"style="height:700px;">
+                  <div class="col-md-12">
+                    <ul class="list-unstyled ">
+                      <li class="d-flex flex-row justify-content-start align-items-center mt-1">  <span class="badge"><img src="https://www.flaticon.com/svg/static/icons/svg/900/900783.svg" class="img-fluid" style="height:25px;width:30px;" /></span><span class="ml-3 font-weight-bold">Public</span></li>
+                      <li class="d-flex flex-row justify-content-start align-items-center mt-1">  <span class="badge"><img src="https://www.flaticon.com/svg/static/icons/svg/1157/1157499.svg" class="img-fluid" style="height:25px;width:30px;" /></span><span class="ml-3 font-weight-bold">Philanthropic</span></li>
+                    
+                      <li class="d-flex flex-row justify-content-start align-items-center mt-1">  <span class="badge"><img src="https://www.flaticon.com/svg/static/icons/svg/1253/1253360.svg" class="img-fluid" style="height:25px;width:30px;" /></span><span class="ml-3 font-weight-bold">Commercial</span></li>
+                    
+                      
+                    </ul>
+                  </div>
+                  <div class="col-md-12 ml-2">
+                    <ul class="list-unstyled ">
+                      <li class="d-flex flex-row">  <span class="badge custom-badge"style="background-color:#6279c5;">&nbsp;</span><span class="custom-name">North America</span></li>
+                      <li class="d-flex flex-row">  <span class="badge  custom-badge"style="background-color:#37cc9a;">&nbsp;</span><span class="custom-name">Latin America & the Caribbean</span></li>
+                      <li class="d-flex flex-row">  <span class="badge custom-badge"style="background-color:#95004f;">&nbsp;</span><span class="custom-name">Europe</span></li>
+                      <li class="d-flex flex-row">  <span class="badge  custom-badge"style="background-color:b37faf;">&nbsp;</span><span class="custom-name">Africa</span></li>
+                      <li class="d-flex flex-row">  <span class="badge custom-badge "style="background-color:b4de00;">&nbsp;</span><span class="custom-name">East,South & Southren Asia</span></li>
+                      <li class="d-flex flex-row">  <span class="badge  custom-badge"style="background-color:#f57b0d">&nbsp;</span><span class="custom-name">Oceania</span></li>
+    
+                    </ul>
+                  </div>
+                </div>
+              
+              </div>
         
-  
+        </div>
+
 
           <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -93,6 +145,7 @@
             integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
             crossorigin="anonymous"></script>
             <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+            
 <script src="https://code.highcharts.com/maps/modules/data.js"></script>
 <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/maps/modules/offline-exporting.js"></script>
@@ -105,7 +158,7 @@
 <script>
     
     Highcharts.getJSON('http://127.0.0.1:3000/api2', function (data) {
-console.log(data)
+      const jsonLength=data.length
 // Prevent logarithmic errors in color calulcation
 data.forEach(function (p) {
     console.log(p.total)
@@ -116,14 +169,16 @@ data.forEach(function (p) {
 Highcharts.mapChart('container', {
 
   chart: {
-    map: 'custom/world'
+    map: 'custom/world',
+
   },
 
   title: {
-    text: 'Top Global Investment in HIV Detection ',
+    text: ' Figure 15 --  Top Global Investment in HIV Detection ',
     style:{
-        color:'green',
+        color:'#000',
         backgroundColor:'',
+        fontSize:"30",
         fontWeight:'700',
 
     }
@@ -158,15 +213,16 @@ Highcharts.mapChart('container', {
     useHTML: true,
     padding: 0,
     pointFormat: '<span class="f32"><span class="flag {point.properties.hc-key}">' +
-      '</span></span> <span style="color:black;font-weight:bold;">{point.name}</span><br>' +
-      '<img src="https://www.flaticon.com/svg/static/icons/svg/761/761534.svg" style="width:15px;height:15px;margin-right:3px;margin-top:2px;"/><span style="font-size:9px"><span class="font-weight-bold" style="color:#ee4036" ">Public :</span> <span style="color:#ee4036;font-weight:bold;">{point.public}  M</span></span><br>'+
-      '<img src="https://www.flaticon.com/svg/static/icons/svg/620/620807.svg" style="width:15px;height:15px;margin-right:3px;margin-top:2px;"/><span style="font-size:9px"><span class="font-weight-bold" style="color:#262261;" ">philanthropic :</span>  <span style="color:#262261;;font-weight:bold;">{point.philanthropic} M</span></span><br>'+
-      '<img src="https://www.flaticon.com/svg/static/icons/svg/1253/1253360.svg" style="width:15px;height:15px;margin-right:3px;margin-top:2px;"/><span style="font-size:9px"><span class="font-weight-bold" style="color:#006400;">Commercial :</span> <span style="color:#006400;;font-weight:bold;">{point.commercial} M</span></span><br>'+
-      '<img src="https://www.flaticon.com/premium-icon/icons/svg/2697/2697325.svg" style="width:15px;height:15px;margin-right:3px;margin-top:2px;"/><span style="font-size:9px"><span class="font-weight-bold" style="color:##42f2f5;">Total :</span>  <span style="color:##42f2f5;;font-weight:bold;">{point.total} M</span></span><br>',
+      '</span></span> <span style="color:{point.color};font-weight:bold;font-size:18px;">{point.name}</span><br>' +
+      '<img src="https://www.flaticon.com/svg/static/icons/svg/761/761534.svg" style="width:25px;height:25px;margin-right:3px;margin-top:5px;"/><span style="font-size:15px"><span class="font-weight-bold" style="color:#000;margin-top:5px;" >Public :</span> <span style="color:#000;font-weight:bold;">{point.public}  M</span></span><br>'+
+      '<img src="https://www.flaticon.com/svg/static/icons/svg/620/620807.svg" style="width:25px;height:25px;margin-right:3px;margin-top:5px;"/><span style="font-size:15px"><span class="font-weight-bold" style="color:#000;margin-top:5px;" >philanthropic :</span>  <span style="color:#000;;font-weight:bold;">{point.philanthropic} M</span></span><br>'+
+      '<img src="https://www.flaticon.com/svg/static/icons/svg/1253/1253360.svg" style="width:25px;height:25px;margin-right:3px;margin-top:5px;"/><span style="font-size:15px"><span class="font-weight-bold" style="color:#000;margin-top:5px;">Commercial :</span> <span style="color:#000;;font-weight:bold;">{point.commercial} M</span></span><br>'+
+      '<img src="https://www.flaticon.com/premium-icon/icons/svg/2697/2697325.svg" style="width:25px;height:25px;margin-right:3px;margin-top:5px;"/><span style="font-size:15px"><span class="font-weight-bold" style="color:#000;margin-top:5px;">Total :</span>  <span style="color:#000;;font-weight:bold;">{point.total} M</span></span><br>',
     positioner: function () {
-      return { x: 0, y: 220 };
+      return { x: 100, y: 500 };
     }
   },
+
 
   colorAxis: {
     min: 1,
@@ -182,7 +238,10 @@ Highcharts.mapChart('container', {
       hover: {
         color: '#a4edba'
       }
-    }
+    }, dataLabels: {
+            enabled: true,
+            format: '{point.name}'
+          }
   }]
 });
 });
