@@ -181,7 +181,7 @@
 
   <script>
 
-    Highcharts.getJSON('http://0:3000/api2', function (data) {
+    Highcharts.getJSON('/api2', function (data) {
       const jsonLength = data.length
       // Prevent logarithmic errors in color calulcation
       data.forEach(function (p) {
