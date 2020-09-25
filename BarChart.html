@@ -58,20 +58,19 @@
                                 <a class="nav-link" href="/">World-Choropleth-Map </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/highchart">HighChart </a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="/barchart">Bar-Chart <span
-                                        class="sr-only">(current)</span></a>
-                            </li>
+                                <a class="nav-link" href="/highchart">World-Map<span class="sr-only">(current)</span></a>
+                              </li>
+                              <li class="nav-item active">
+                                <a class="nav-link" href="/barchart">Bar-Chart</a>
+                              </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     More
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="/barchart">BarChart</a>
-                                    <a class="dropdown-item" href="/highchart">HighChart 2</a>
+                                    <!-- <a class="dropdown-item" href="/barchart">BarChart</a>
+                                    <a class="dropdown-item" href="/highchart">HighChart 2</a> -->
                                 </div>
                             </li>
                         </ul>
@@ -85,64 +84,43 @@
 
 
 
-    <div class="container mt-2">
+    <div class="container-fluid mt-2 pl-5 pr-5">
         <div class="row">
             <div class="col-md-12 border">
                 <div id="container"></div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3 ">
+            <div class="col">
                 <div class="row bg-success pt-2">
                     <div class="col-md-12 d-flex flex-column justify-content-center align-items-center  ">
-                        <p class="text-white font-weight-bold  m-0 p-0 " style="font-size:25px;letter-spacing:2px;">PUBLIC
-                        </p><span class="numYear text-white font-weight-bold m-0 p-0  " style="font-size:18px;">(2018)</span>
-                    </div>
-                    <div class="col-md-12 d-flex flex-row justify-content-center align-items-center">
-                        <p class="text-white font-weight-bold mt-2" style="font-size:45px;transform: scale(1.2, 1.7);"
-                            id="numPublic">
-                            11624</p>
-                    </div>
-                    <div class="col-md-12 d-flex flex-row justify-content-center align-items-center">
-                        <p class="text-white font-weight-bold" style="font-size:14px;">US$ MILLION</p>
-                    </div>
-                </div>
-
-
-            </div>
-
-
-            <div class="col-md-3 ">
-                <div class="row bg-danger pt-2">
-                    <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
-                        <p class="text-white font-weight-bold m-0 p-0 " style="font-size:25px;letter-spacing:2px;">
-                            COMMERCIAL</p>
-                        <span class="numYear text-white font-weight-bold  " style="font-size:14px;">(2018)</span>
-                    </div>
-                    <div class="col-md-12 d-flex flex-row justify-content-center align-items-center">
-                        <p class="text-white font-weight-bold mt-2" style="font-size:45px;transform: scale(1.2, 1.7);"
-                            id="numCommercial">65000
-                        </p>
-                    </div>
-                    <div class="col-md-12 d-flex flex-row justify-content-center align-items-center">
-                        <p class="text-white font-weight-bold" style="font-size:18px;">US$ MILLION</p>
-                    </div>
-                </div>
-
-
-            </div>
-
-
-            <div class="col-md-3 ">
-                <div class="row bg-secondary pt-2">
-                    <div class="col-md-12 d-flex flex-column justify-content-center align-items-center ">
-                        <p class="text-white font-weight-bold m-0 p-0  " style="font-size:25px;letter-spacing:2px;">
-                            PHILANTHROPIC</p><span class="numYear text-white font-weight-bold m-0 p-0 "
+                       <span class="numYear text-white font-weight-bold m-0 p-0  "
                             style="font-size:14px;">(2018)</span>
                     </div>
                     <div class="col-md-12 d-flex flex-row justify-content-center align-items-center">
-                        <p class="text-white font-weight-bold mt-2" style="font-size:45px;transform: scale(1.2, 1.7);"
-                            id="num">20000
+                        <p class="text-white font-weight-bold mt-2" style="font-size:35px;transform: scale(1.2, 1.7);"
+                            id="valueFirst">
+                            18</p>
+                    </div>
+                    <div class="col-md-12 d-flex flex-row justify-content-center align-items-center">
+                        <p class="text-white font-weight-bold" style="font-size:18px;">US$ MILLION</p>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <div class="col">
+                <div class="row bg-danger pt-2">
+                    <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
+                       
+                        <span class="numYear text-white font-weight-bold  " style="font-size:14px;">(2018)</span>
+                    </div>
+                    <div class="col-md-12 d-flex flex-row justify-content-center align-items-center">
+                        <p class="text-white font-weight-bold mt-2" style="font-size:35px;transform: scale(1.2, 1.7);"
+                        id="valueSecond">
+                        25
                         </p>
                     </div>
                     <div class="col-md-12 d-flex flex-row justify-content-center align-items-center">
@@ -154,17 +132,101 @@
             </div>
 
 
-            <div class="col-md-3 ">
-                <div class="row bg-dark pt-2">
-                    <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
-                        <p class="text-white font-weight-bold  m-0 p-0 " style="font-size:25px;letter-spacing:2px;">TOTAL
+            <div class="col">
+                <div class="row bg-secondary pt-2">
+                    <div class="col-md-12 d-flex flex-column justify-content-center align-items-center ">
+                      <span class="numYear text-white font-weight-bold m-0 p-0 "
+                            style="font-size:14px;">(2018)</span>
+                    </div>
+                    <div class="col-md-12 d-flex flex-row justify-content-center align-items-center">
+                        <p class="text-white font-weight-bold mt-2" style="font-size:35px;transform: scale(1.2, 1.7);"
+                        id="valueThird">35
                         </p>
+                    </div>
+                    <div class="col-md-12 d-flex flex-row justify-content-center align-items-center">
+                        <p class="text-white font-weight-bold" style="font-size:18px;">US$ MILLION</p>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <div class="col">
+                <div class="row bg-info pt-2">
+                    <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
+                       
                         <span class="numYear text-white font-weight-bold m-0 p-0 " style="font-size:14px;">(2018)</span>
                     </div>
                     <div class="col-md-12 d-flex flex-row justify-content-center align-items-center">
-                        <p class="text-white font-weight-bold mt-2" style="font-size:45px;transform: scale(1.2, 1.7);"
-                            id="numTotal">
-                            108624</p>
+                        <p class="text-white font-weight-bold mt-2" style="font-size:35px;transform: scale(1.2, 1.7);"
+                        id="valueFourth">
+                            45</p>
+                    </div>
+                    <div class="col-md-12 d-flex flex-row justify-content-center align-items-center">
+                        <p class="text-white font-weight-bold" style="font-size:18px;">US$ MILLION</p>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+            <div class="col">
+                <div class="row bg-dark pt-2">
+                    <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
+                        
+                        <span class="numYear text-white font-weight-bold m-0 p-0 " style="font-size:14px;">(2018)</span>
+                    </div>
+                    <div class="col-md-12 d-flex flex-row justify-content-center align-items-center">
+                        <p class="text-white font-weight-bold mt-2" style="font-size:35px;transform: scale(1.2, 1.7);"
+                        id="valueFive">
+                            55</p>
+                    </div>
+                    <div class="col-md-12 d-flex flex-row justify-content-center align-items-center">
+                        <p class="text-white font-weight-bold" style="font-size:18px;">US$ MILLION</p>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+
+            <div class="col">
+                <div class="row bg-light pt-2">
+                    <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
+                        
+                        <span class="numYear text-dark font-weight-bold m-0 p-0 " style="font-size:14px;">(2018)</span>
+                    </div>
+                    <div class="col-md-12 d-flex flex-row justify-content-center align-items-center">
+                        <p class="text-dark font-weight-bold mt-2" style="font-size:35px;transform: scale(1.2, 1.7);"
+                        id="valueSix">
+                            65</p>
+                    </div>
+                    <div class="col-md-12 d-flex flex-row justify-content-center align-items-center">
+                        <p class="text-dark font-weight-bold" style="font-size:18px;">US$ MILLION</p>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+
+            <div class="col">
+                <div class="row bg-primary pt-2">
+                    <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
+                       
+                        <span class="numYear text-white font-weight-bold m-0 p-0 " style="font-size:14px;">(2018)</span>
+                    </div>
+                    <div class="col-md-12 d-flex flex-row justify-content-center align-items-center">
+                        <p class="text-white font-weight-bold mt-2" style="font-size:35px;transform: scale(1.2, 1.7);"
+                        id="valueSeven">
+                            75</p>
                     </div>
                     <div class="col-md-12 d-flex flex-row justify-content-center align-items-center">
                         <p class="text-white font-weight-bold" style="font-size:18px;">US$ MILLION</p>
@@ -179,59 +241,86 @@
         </div>
 
         <div class="row mt-3">
-            <div class="col-md-3 d-flex flex-row justify-content-center align-items-center">
+            <div class="col d-flex flex-row justify-content-center align-items-center">
 
-                <img src="https://www.flaticon.com/svg/static/icons/svg/2934/2934700.svg" class="img-fluid"
+                <img src="http://127.0.0.1:3000/static/SVG/1.svg" class="img-fluid"
                     style="height: 80px;;width:100px;;" />
             </div>
 
 
-            <div class="col-md-3 d-flex flex-row justify-content-center align-items-center">
-                <img src="https://www.flaticon.com/svg/static/icons/svg/891/891419.svg" class="img-fluid"
+            <div class="col d-flex flex-row justify-content-center align-items-center">
+                <img src="http://127.0.0.1:3000/static/SVG/2.svg" class="img-fluid"
                     style="height: 80px;;width:100px;;" />
             </div>
 
 
-            <div class="col-md-3 d-flex flex-row justify-content-center align-items-center">
-                <img src="https://www.flaticon.com/svg/static/icons/svg/3533/3533270.svg" class="img-fluid"
+            <div class="col d-flex flex-row justify-content-center align-items-center">
+                <img src="http://127.0.0.1:3000/static/SVG/3.svg" class="img-fluid"
                     style="height: 80px;;width:100px;;" />
             </div>
 
 
-            <div class="col-md-3 d-flex flex-row justify-content-center align-items-center">
-                <img src="https://www.flaticon.com/premium-icon/icons/svg/2244/2244556.svg" class="img-fluid"
+            <div class="col d-flex flex-row justify-content-center align-items-center">
+                <img src="http://127.0.0.1:3000/static/SVG/4.svg" class="img-fluid"
+                    style="height: 80px;;width:100px;;" />
+            </div>
+
+
+            <div class="col d-flex flex-row justify-content-center align-items-center">
+                <img src="http://127.0.0.1:3000/static/SVG/5.svg" class="img-fluid"
+                    style="height: 80px;;width:100px;;" />
+            </div>
+
+
+            <div class="col d-flex flex-row justify-content-center align-items-center">
+                <img src="http://127.0.0.1:3000/static/SVG/6.svg" class="img-fluid"
+                    style="height: 80px;;width:100px;;" />
+            </div>
+
+            <div class="col d-flex flex-row justify-content-center align-items-center">
+                <img src="http://127.0.0.1:3000/static/SVG/7.svg" class="img-fluid"
                     style="height: 80px;;width:100px;;" />
             </div>
 
 
 
         </div>
-
-
+        <!--  -->
         <div class="row">
-            <div class="col-md-3 d-flex flex-row justify-content-center align-items-center pt-3">
-                <p class="font-weight-bold text-muted">PREVENTIVE VACCINES</p>
+            <div class="col border d-flex flex-row justify-content-center align-items-center pt-3">
+                <p class="font-weight-bold text-dark  text-center"style="font-size:13px;">Preventive Vaccines</p>
+            </div>
 
+            <div class="col border d-flex flex-row justify-content-center align-items-center pt-3">
+                <p class="font-weight-bold text-dark  text-center"style="font-size:13px;">Microbicides</p>
             </div>
 
 
-            <div class="col-md-3 d-flex flex-row justify-content-center align-items-center pt-3">
-                <p class="font-weight-bold text-muted">PREVENTIVE VACCINES</p>
+            <div class="col border d-flex flex-row justify-content-center align-items-center pt-3">
+                <p class="font-weight-bold text-dark  text-center"style="font-size:13px;">Prevention of Vertical Transmission</p>
             </div>
 
 
-            <div class="col-md-3 d-flex flex-row justify-content-center align-items-center pt-3">
-                <p class="font-weight-bold text-muted">PREVENTIVE VACCINES</p>
+            <div class="col border d-flex flex-row justify-content-center align-items-center pt-3">
+                <p class="font-weight-bold text-dark  text-center"style="font-size:13px;">Pre-exposure Prophylaxis</p>
             </div>
 
 
-            <div class="col-md-3 d-flex flex-row justify-content-center align-items-center pt-3">
-                <p class="font-weight-bold text-muted">PREVENTIVE VACCINES</p>
+            <div class="col border d-flex flex-row justify-content-center align-items-center pt-3">
+                <p class="font-weight-bold text-dark  text-center"style="font-size:13px;">Treatment as Prevention</p>
             </div>
 
 
+            <div class="col border d-flex flex-row justify-content-center align-items-center pt-3">
+                <p class="font-weight-bold text-dark text-center"style="font-size:13px;" >Voluntary Medical Male Circumcision</p>
+            </div>
 
+            <div class="col border d-flex flex-row justify-content-center align-items-center pt-3">
+                <p class="font-weight-bold text-dark text-center"style="font-size:13px;" >Female Condoms</p>
+            </div>
         </div>
+        <!--  -->
+      
 
 
 
@@ -251,26 +340,27 @@
         anychart.onDocumentReady(function () {
             // create data set on our data
             var dataSet = anychart.data.set([
-                ['2001', 11861, 20000, 80000, 160000],
-                ['2002', 11261, 30000, 60000, 150000],
-                ['2003', 22998, 40000, 70000, 130000],
-                ['2004', 10342, 50000, 9000, 140000],
-                ['2005', 12321, 30000, 90000, 190000],
-                ['2006', 12998, 20000, 75000, 160000],
-                ['2007', 8814, 10000, 45000, 150000],
-                ['2008', 11624, 30000, 66000, 190000],
-                ['2009', 13012, 60000, 44000, 120000],
-                ['2010', 12814, 70000, 95000, 130000]
-                ['2011', 11861, 50000, 56000, 180000],
-                ['2012', 11261, 30000, 34000, 110000],
-                ['2013', 22998, 20000, 76000, 140000],
-                ['2014', 10342, 30000, 55000, 170000],
-                ['2015', 12321, 40000, 87000, 130000],
-                ['2016', 12998, 50000, 96000, 120000],
-                ['2017', 8814, 10000, 45000, 150000],
-                ['2018', 11624, 20000, 65000, 108624],
-                ['2019', 13012, 30000, 34000, 130000],
-                ['2020', 12814, 50000, 87000, 150000]
+                ['2001',10,20,30,40,50,60,70],
+                ['2002',11,22,33,44,55,66,77],
+                ['2003',12,22,32,42,52,62,72],
+                ['2004',13,23,33,43,53,63,73],
+                ['2005',11,22,33,41,55,65,75],
+                ['2006',18,28,38,48,58,68,78],
+                ['2007',19,29,39,49,59,69,79],
+                ['2008',15,25,35,45,55,65,75],
+                ['2009',11,21,31,41,51,61,71],
+                ['2010',19,29,39,49,59,65,75],
+                ['2011',14,24,34,44,54,64,74],
+                ['2012',12,22,32,42,52,62,72],
+                ['2013',11,21,31,41,51,61,71],
+                ['2014',19,28,32,44,55,69,78],
+                ['2015',10,20,30,40,50,60,70],
+                ['2016',13,23,33,43,53,63,73],
+                ['2017',14,25,35,46,56,66,74],
+                ['2018',18,25,35,45,55,65,75],
+                ['2019',15,24,36,46,56,66,74],
+                ['2020',11,22,36,45,58,69,78],
+              
             ]);
 
             // map data for the first series, take x from the zero column and value from the first column of data set
@@ -284,6 +374,9 @@
 
             // map data for the fourth series, take x from the zero column and value from the fourth column of data set
             var seriesData_4 = dataSet.mapAs({ 'x': 0, 'value': 4 });
+            var seriesData_5 = dataSet.mapAs({ 'x': 0, 'value': 5 });
+            var seriesData_6 = dataSet.mapAs({ 'x': 0, 'value': 6 });
+            var seriesData_7 = dataSet.mapAs({ 'x': 0, 'value': 7 });
 
             // create bar chart
             var chart = anychart.column();
@@ -362,43 +455,75 @@
 
             // create first series with mapped data
             series1 = chart.column(seriesData_1);
-            series1.normal().fill("#F3D803", 0.9);
-            series1.hovered().fill("#F3D803", 0.1);
-            series1.selected().fill("#F3D803", 0.5);
-            series1.normal().stroke("#F3D803", 1, "10 5", "round");
-            series1.hovered().stroke("#F3D803", 2, "10 5", "round");
-            series1.selected().stroke("#F3D803", 4, "10 5", "round");
-            setupSeriesLabels(series1, 'Public');
+            series1.normal().fill("#bc5090", 0.9);
+            series1.hovered().fill("#bc5090", 0.1);
+            series1.selected().fill("#bc5090", 0.5);
+            series1.normal().stroke("#bc5090", 1, "10 5", "round");
+            series1.hovered().stroke("#bc5090", 2, "10 5", "round");
+            series1.selected().stroke("#bc5090", 4, "10 5", "round");
+            setupSeriesLabels(series1, 'Preventive Vaccines');
 
             // create second series with mapped data
             series2 = chart.column(seriesData_2);
-            series2.normal().fill("#6EA8F2", 0.9);
-            series2.hovered().fill("#6EA8F2", 0.1);
-            series2.selected().fill("#6EA8F2", 0.5);
-            series2.normal().stroke("#6EA8F2", 1, "10 5", "round");
-            series2.hovered().stroke("#6EA8F2", 2, "10 5", "round");
-            series2.selected().stroke("#6EA8F2", 4, "10 5", "round");
-            setupSeriesLabels(series2, 'Philanthropic');
+            series2.normal().fill("#ff6361", 0.9);
+            series2.hovered().fill("#ff6361", 0.1);
+            series2.selected().fill("#ff6361", 0.5);
+            series2.normal().stroke("#ff6361", 1, "10 5", "round");
+            series2.hovered().stroke("#ff6361", 2, "10 5", "round");
+            series2.selected().stroke("#ff6361", 4, "10 5", "round");
+            setupSeriesLabels(series2, 'Microbicides');
 
             // create third series with mapped data
             series3 = chart.column(seriesData_3);
-            series3.normal().fill("#F22020", 0.9);
-            series3.hovered().fill("#F22020", 0.1);
-            series3.selected().fill("#F22020", 0.5);
-            series3.normal().stroke("#F22020", 1, "10 5", "round");
-            series3.hovered().stroke("#F22020", 2, "10 5", "round");
-            series3.selected().stroke("#F22020", 4, "10 5", "round");
-            setupSeriesLabels(series3, 'Commercial');
+            series3.normal().fill("#003f5c", 0.9);
+            series3.hovered().fill("#003f5c", 0.1);
+            series3.selected().fill("#003f5c", 0.5);
+            series3.normal().stroke("#003f5c", 1, "10 5", "round");
+            series3.hovered().stroke("#003f5c", 2, "10 5", "round");
+            series3.selected().stroke("#003f5c", 4, "10 5", "round");
+            setupSeriesLabels(series3, 'Vertical Transmission Prevention');
 
             // create fourth series with mapped data
             series4 = chart.column(seriesData_4);
-            series4.normal().fill("#3F5E1C", 0.9);
-            series4.hovered().fill("#3F5E1C", 0.1);
-            series4.selected().fill("#3F5E1C", 0.5);
-            series4.normal().stroke("#3F5E1C", 1, "10 5", "round");
-            series4.hovered().stroke("#3F5E1C", 2, "10 5", "round");
-            series4.selected().stroke("#3F5E1C", 4, "10 5", "round");
-            setupSeriesLabels(series4, 'Total');
+            series4.normal().fill("#6EA8F2", 0.9);
+            series4.hovered().fill("#6EA8F2", 0.1);
+            series4.selected().fill("#6EA8F2", 0.5);
+            series4.normal().stroke("#6EA8F2", 1, "10 5", "round");
+            series4.hovered().stroke("#6EA8F2", 2, "10 5", "round");
+            series4.selected().stroke("#6EA8F2", 4, "10 5", "round");
+            setupSeriesLabels(series4, 'Pre-Exposure Prophylaxis');
+
+             // create fourth series with mapped data
+             series5 = chart.column(seriesData_5);
+            series5.normal().fill("#F3D803", 0.9);
+            series5.hovered().fill("#F3D803", 0.1);
+            series5.selected().fill("#F3D803", 0.5);
+            series5.normal().stroke("#F3D803", 1, "10 5", "round");
+            series5.hovered().stroke("#F3D803", 2, "10 5", "round");
+            series5.selected().stroke("#F3D803", 4, "10 5", "round");
+            setupSeriesLabels(series5, 'Treatment as Prevention');
+
+
+             // create fourth series with mapped data
+             series6 = chart.column(seriesData_6);
+            series6.normal().fill("#F22020", 0.9);
+            series6.hovered().fill("#F22020", 0.1);
+            series6.selected().fill("#F22020", 0.5);
+            series6.normal().stroke("#F22020", 1, "10 5", "round");
+            series6.hovered().stroke("#F22020", 2, "10 5", "round");
+            series6.selected().stroke("#F22020", 4, "10 5", "round");
+            setupSeriesLabels(series6, 'Voluntary Medical Male Circumcision');
+           
+
+             // create fourth series with mapped data
+             series7 = chart.column(seriesData_7);
+            series7.normal().fill("#3F5E1C", 0.9);
+            series7.hovered().fill("#3F5E1C", 0.1);
+            series7.selected().fill("#3F5E1C", 0.5);
+            series7.normal().stroke("#3F5E1C", 1, "10 5", "round");
+            series7.hovered().stroke("#3F5E1C", 2, "10 5", "round");
+            series7.selected().stroke("#3F5E1C", 4, "10 5", "round");
+            setupSeriesLabels(series7, 'Female Condoms');
 
             // turn on legend
             chart.legend().enabled(true).fontSize(13).padding([0, 0, 20, 0]);
@@ -416,16 +541,18 @@
                     row.fillOld = row.fill; row.fill = "green";
                 }
                 console.log(index)
-                console.log("year" + row[0])
-                console.log("public" + row[1])
-                console.log("philan" + row[2])
-                console.log("commercial" + row[3])
-                console.log("total" + row[4])
-                $('#num').html(row[2])
-                $('#numPublic').html(row[1])
-                $('#numCommercial').html(row[3])
-                $('#numTotal').html(row[4])
-                $('.numYear').html("(" + row[0] + ")")
+                let valueFirst=parseInt(row[1])*1000000
+                
+                $('#valueFirst').html(parseInt(row[1])+"")
+                $('#valueSecond').html(parseInt(row[2])+"")
+                $('#valueThird').html(parseInt(row[3])+"")
+                $('#valueFourth').html(parseInt(row[4])+"")
+                $('#valueFive').html(parseInt(row[5])+"")
+                $('#valueSix').html(parseInt(row[6])+"")
+                $('#valueSeven').html(parseInt(row[7])+"")
+        
+
+                $('.num').html("(" + row[0] + ")")
 
 
 
