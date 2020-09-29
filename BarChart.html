@@ -2,11 +2,17 @@
               https://playground.anychart.com/gallery/src/Maps_General_Features/World_Choropleth_Map
      -->
 <html>
-
-<head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
     <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
     <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
@@ -14,552 +20,564 @@
     <script src="https://cdn.anychart.com/releases/v8/js/anychart-data-adapter.min.js"></script>
     <script src="https://cdn.anychart.com/geodata/2.0.0/custom/world/world.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.15/proj4.js"></script>
-    <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
-    <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
+    <link
+      href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css"
+      type="text/css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css"
+      type="text/css"
+      rel="stylesheet"
+    />
     <style type="text/css">
-        html,
-        body,
-        #container {
-            width: 100%;
-            height: 600px;
-            margin: 0;
-            padding: 0;
-        }
+      html,
+      body,
+      #container {
+        width: 100%;
+        height: 700px;
+        margin: 0;
+        padding: 0;
+      }
 
-        .serif {
-            font-family: "Times New Roman", Times, serif;
-        }
+      .serif {
+        font-family: "Times New Roman", Times, serif;
+      }
 
-        .sansserif {
-            font-family: Arial, Helvetica, sans-serif;
-        }
+      .sansserif {
+        font-family: Arial, Helvetica, sans-serif;
+      }
 
-        .monospace {
-            font-family: "Lucida Console", Courier, monospace;
-        }
+      .monospace {
+        font-family: "Lucida Console", Courier, monospace;
+      }
+      .custom-border {
+        border-radius: 10px !important;
+        border: 1px solid #D3D3D3;
+      }
+      .custom-icon-container {
+       margin-bottom:10px;
+      }
+      .custom-vector-image{
+          height:80px;
+          width:80px;
+          margin-top:10px;
+      }
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.1); }
+.custom-icon-text{
+font-size:13px;
+padding-left:20px;
+
+
+}
     </style>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <!-- start -->
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12 m-0 p-0 ">
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark m-0 p-0 ">
-                    <a class="navbar-brand" href="/">DEMO</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                        <ul class="navbar-nav">
-                            <li class="nav-item ">
-                                <a class="nav-link" href="/">World-Choropleth-Map </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/highchart">World-Map<span class="sr-only">(current)</span></a>
-                              </li>
-                              <li class="nav-item active">
-                                <a class="nav-link" href="/barchart">Bar-Chart</a>
-                              </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    More
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <!-- <a class="dropdown-item" href="/barchart">BarChart</a>
+      <div class="row">
+        <div class="col-md-12 m-0 p-0">
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark m-0 p-0">
+            <a class="navbar-brand" href="/">DEMO</a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarNavDropdown"
+              aria-controls="navbarNavDropdown"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="/">World-Choropleth-Map </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/highchart"
+                    >World-Map<span class="sr-only">(current)</span></a
+                  >
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="/barchart">Bar-Chart</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdownMenuLink"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    More
+                  </a>
+                  <div
+                    class="dropdown-menu"
+                    aria-labelledby="navbarDropdownMenuLink"
+                  >
+                    <!-- <a class="dropdown-item" href="/barchart">BarChart</a>
                                     <a class="dropdown-item" href="/highchart">HighChart 2</a> -->
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+                  </div>
+                </li>
+              </ul>
             </div>
-
-
+          </nav>
         </div>
+      </div>
     </div>
-
-
 
     <div class="container-fluid mt-2 pl-5 pr-5">
-        <div class="row">
-            <div class="col-md-12 border">
-                <div id="container"></div>
-            </div>
+      <div class="row">
+        <div class="col-md-9 border">
+          <div id="container"></div>
         </div>
-        <div class="row">
-            <div class="col">
-                <div class="row bg-success pt-2">
-                    <div class="col-md-12 d-flex flex-column justify-content-center align-items-center  ">
-                       <span class="numYear text-white font-weight-bold m-0 p-0  "
-                            style="font-size:14px;">(2018)</span>
-                    </div>
-                    <div class="col-md-12 d-flex flex-row justify-content-center align-items-center">
-                        <p class="text-white font-weight-bold mt-2" style="font-size:35px;transform: scale(1.2, 1.7);"
-                            id="valueFirst">
-                            18</p>
-                    </div>
-                    <div class="col-md-12 d-flex flex-row justify-content-center align-items-center">
-                        <p class="text-white font-weight-bold" style="font-size:18px;">US$ MILLION</p>
-                    </div>
-                </div>
-
-
-            </div>
-
-
-            <div class="col">
-                <div class="row bg-danger pt-2">
-                    <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
-                       
-                        <span class="numYear text-white font-weight-bold  " style="font-size:14px;">(2018)</span>
-                    </div>
-                    <div class="col-md-12 d-flex flex-row justify-content-center align-items-center">
-                        <p class="text-white font-weight-bold mt-2" style="font-size:35px;transform: scale(1.2, 1.7);"
-                        id="valueSecond">
-                        25
-                        </p>
-                    </div>
-                    <div class="col-md-12 d-flex flex-row justify-content-center align-items-center">
-                        <p class="text-white font-weight-bold" style="font-size:18px;">US$ MILLION</p>
-                    </div>
-                </div>
-
-
-            </div>
-
-
-            <div class="col">
-                <div class="row bg-secondary pt-2">
-                    <div class="col-md-12 d-flex flex-column justify-content-center align-items-center ">
-                      <span class="numYear text-white font-weight-bold m-0 p-0 "
-                            style="font-size:14px;">(2018)</span>
-                    </div>
-                    <div class="col-md-12 d-flex flex-row justify-content-center align-items-center">
-                        <p class="text-white font-weight-bold mt-2" style="font-size:35px;transform: scale(1.2, 1.7);"
-                        id="valueThird">35
-                        </p>
-                    </div>
-                    <div class="col-md-12 d-flex flex-row justify-content-center align-items-center">
-                        <p class="text-white font-weight-bold" style="font-size:18px;">US$ MILLION</p>
-                    </div>
-                </div>
-
-
-            </div>
-
-
-            <div class="col">
-                <div class="row bg-info pt-2">
-                    <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
-                       
-                        <span class="numYear text-white font-weight-bold m-0 p-0 " style="font-size:14px;">(2018)</span>
-                    </div>
-                    <div class="col-md-12 d-flex flex-row justify-content-center align-items-center">
-                        <p class="text-white font-weight-bold mt-2" style="font-size:35px;transform: scale(1.2, 1.7);"
-                        id="valueFourth">
-                            45</p>
-                    </div>
-                    <div class="col-md-12 d-flex flex-row justify-content-center align-items-center">
-                        <p class="text-white font-weight-bold" style="font-size:18px;">US$ MILLION</p>
-                    </div>
-                </div>
-
-
-            </div>
-
-
-
-            <div class="col">
-                <div class="row bg-dark pt-2">
-                    <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
-                        
-                        <span class="numYear text-white font-weight-bold m-0 p-0 " style="font-size:14px;">(2018)</span>
-                    </div>
-                    <div class="col-md-12 d-flex flex-row justify-content-center align-items-center">
-                        <p class="text-white font-weight-bold mt-2" style="font-size:35px;transform: scale(1.2, 1.7);"
-                        id="valueFive">
-                            55</p>
-                    </div>
-                    <div class="col-md-12 d-flex flex-row justify-content-center align-items-center">
-                        <p class="text-white font-weight-bold" style="font-size:18px;">US$ MILLION</p>
-                    </div>
-                </div>
-
-
-            </div>
-
-
-
-
-            <div class="col">
-                <div class="row bg-light pt-2">
-                    <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
-                        
-                        <span class="numYear text-dark font-weight-bold m-0 p-0 " style="font-size:14px;">(2018)</span>
-                    </div>
-                    <div class="col-md-12 d-flex flex-row justify-content-center align-items-center">
-                        <p class="text-dark font-weight-bold mt-2" style="font-size:35px;transform: scale(1.2, 1.7);"
-                        id="valueSix">
-                            65</p>
-                    </div>
-                    <div class="col-md-12 d-flex flex-row justify-content-center align-items-center">
-                        <p class="text-dark font-weight-bold" style="font-size:18px;">US$ MILLION</p>
-                    </div>
-                </div>
-
-
-            </div>
-
-
-
-
-            <div class="col">
-                <div class="row bg-primary pt-2">
-                    <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
-                       
-                        <span class="numYear text-white font-weight-bold m-0 p-0 " style="font-size:14px;">(2018)</span>
-                    </div>
-                    <div class="col-md-12 d-flex flex-row justify-content-center align-items-center">
-                        <p class="text-white font-weight-bold mt-2" style="font-size:35px;transform: scale(1.2, 1.7);"
-                        id="valueSeven">
-                            75</p>
-                    </div>
-                    <div class="col-md-12 d-flex flex-row justify-content-center align-items-center">
-                        <p class="text-white font-weight-bold" style="font-size:18px;">US$ MILLION</p>
-                    </div>
-                </div>
-
-
-            </div>
-
-
-
-        </div>
-
-        <div class="row mt-3">
-            <div class="col d-flex flex-row justify-content-center align-items-center">
-
-                <img src="/static/SVG/1.svg" class="img-fluid"
-                    style="height: 80px;;width:100px;;" />
-            </div>
-
-
-            <div class="col d-flex flex-row justify-content-center align-items-center">
-                <img src="/static/SVG/2.svg" class="img-fluid"
-                    style="height: 80px;;width:100px;;" />
-            </div>
-
-
-            <div class="col d-flex flex-row justify-content-center align-items-center">
-                <img src="/static/SVG/3.svg" class="img-fluid"
-                    style="height: 80px;;width:100px;;" />
-            </div>
-
-
-            <div class="col d-flex flex-row justify-content-center align-items-center">
-                <img src="/static/SVG/4.svg" class="img-fluid"
-                    style="height: 80px;;width:100px;;" />
-            </div>
-
-
-            <div class="col d-flex flex-row justify-content-center align-items-center">
-                <img src="/static/SVG/5.svg" class="img-fluid"
-                    style="height: 80px;;width:100px;;" />
-            </div>
-
-
-            <div class="col d-flex flex-row justify-content-center align-items-center">
-                <img src="/static/SVG/6.svg" class="img-fluid"
-                    style="height: 80px;;width:100px;;" />
-            </div>
-
-            <div class="col d-flex flex-row justify-content-center align-items-center">
-                <img src="/static/SVG/7.svg" class="img-fluid"
-                    style="height: 80px;;width:100px;;" />
-            </div>
-
-
-
-        </div>
-        <!--  -->
-        <div class="row">
-            <div class="col border d-flex flex-row justify-content-center align-items-center pt-3">
-                <p class="font-weight-bold text-dark  text-center"style="font-size:13px;">Preventive Vaccines</p>
-            </div>
-
-            <div class="col border d-flex flex-row justify-content-center align-items-center pt-3">
-                <p class="font-weight-bold text-dark  text-center"style="font-size:13px;">Microbicides</p>
-            </div>
-
-
-            <div class="col border d-flex flex-row justify-content-center align-items-center pt-3">
-                <p class="font-weight-bold text-dark  text-center"style="font-size:13px;">Prevention of Vertical Transmission</p>
-            </div>
-
-
-            <div class="col border d-flex flex-row justify-content-center align-items-center pt-3">
-                <p class="font-weight-bold text-dark  text-center"style="font-size:13px;">Pre-exposure Prophylaxis</p>
-            </div>
-
-
-            <div class="col border d-flex flex-row justify-content-center align-items-center pt-3">
-                <p class="font-weight-bold text-dark  text-center"style="font-size:13px;">Treatment as Prevention</p>
-            </div>
-
-
-            <div class="col border d-flex flex-row justify-content-center align-items-center pt-3">
-                <p class="font-weight-bold text-dark text-center"style="font-size:13px;" >Voluntary Medical Male Circumcision</p>
-            </div>
-
-            <div class="col border d-flex flex-row justify-content-center align-items-center pt-3">
-                <p class="font-weight-bold text-dark text-center"style="font-size:13px;" >Female Condoms</p>
-            </div>
-        </div>
-        <!--  -->
-      
-
-
-
-
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
-    <script>
-        anychart.onDocumentReady(function () {
-            // create data set on our data
-            var dataSet = anychart.data.set([
-                ['2001',10,20,30,40,50,60,70],
-                ['2002',11,22,33,44,55,66,77],
-                ['2003',12,22,32,42,52,62,72],
-                ['2004',13,23,33,43,53,63,73],
-                ['2005',11,22,33,41,55,65,75],
-                ['2006',18,28,38,48,58,68,78],
-                ['2007',19,29,39,49,59,69,79],
-                ['2008',15,25,35,45,55,65,75],
-                ['2009',11,21,31,41,51,61,71],
-                ['2010',19,29,39,49,59,65,75],
-                ['2011',14,24,34,44,54,64,74],
-                ['2012',12,22,32,42,52,62,72],
-                ['2013',11,21,31,41,51,61,71],
-                ['2014',19,28,32,44,55,69,78],
-                ['2015',10,20,30,40,50,60,70],
-                ['2016',13,23,33,43,53,63,73],
-                ['2017',14,25,35,46,56,66,74],
-                ['2018',18,25,35,45,55,65,75],
-                ['2019',15,24,36,46,56,66,74],
-                ['2020',11,22,36,45,58,69,78],
-              
-            ]);
-
-            // map data for the first series, take x from the zero column and value from the first column of data set
-            var seriesData_1 = dataSet.mapAs({ 'x': 0, 'value': 1, });
-
-            // map data for the second series, take x from the zero column and value from the second column of data set
-            var seriesData_2 = dataSet.mapAs({ 'x': 0, 'value': 2 });
-
-            // map data for the third series, take x from the zero column and value from the third column of data set
-            var seriesData_3 = dataSet.mapAs({ 'x': 0, 'value': 3 });
-
-            // map data for the fourth series, take x from the zero column and value from the fourth column of data set
-            var seriesData_4 = dataSet.mapAs({ 'x': 0, 'value': 4 });
-            var seriesData_5 = dataSet.mapAs({ 'x': 0, 'value': 5 });
-            var seriesData_6 = dataSet.mapAs({ 'x': 0, 'value': 6 });
-            var seriesData_7 = dataSet.mapAs({ 'x': 0, 'value': 7 });
-
-            // create bar chart
-            var chart = anychart.column();
-
-            // turn on chart animation
-            chart.animation(true);
-
-            // set container id for the chart
-            chart.container('container');
-            chart.padding([10, 40, 5, 20]);
-
-            // set scale minimum
-            chart.yScale().minimum(0);
-
-            // force chart to stack values by Y scale.
-            chart.yScale().stackMode('value');
-
-            chart.yAxis().labels().format(function () {
-                return "$" + this.value.toLocaleString();
-            });
-            //Style X Axis 
-            var labels = chart.xAxis().labels();
-            labels.fontFamily("Courier");
-            labels.fontSize(12);
-            labels.fontColor("red");
-            labels.fontWeight("bold");
-            labels.useHtml(false);
-            var xLabelsBackground = chart.xAxis().labels().background();
-            xLabelsBackground.enabled(true);
-            xLabelsBackground.stroke("#cecece");
-            xLabelsBackground.cornerType("round");
-            xLabelsBackground.corners(5);
-
-            //End Style X Axis 
-
-
-            //Style yAxis 
-            // wait until chart is displayed
-            chart.listen('chartDraw', function () {
-                // get a number of labels on the Y axis
-                var count = chart.yAxis().labels().getLabelsCount();
-                // go to through all labels
-                for (var i = 0; i < count; i++) {
-                    // get label object
-                    var label = chart.yAxis().labels().getLabel(i);
-                    // get value of the scale this label
-                    value = chart.yAxis().scale().ticks().get()[i];
-                    // get chart average
-                    avg = chart.getSeries(0).getStat('average');
-                    // if the value is greater
-                    if (value > avg) {
-                        label.fontColor("red");
-                        label.background().enabled(true).stroke("black");
-                        label.draw();
-                    }
-                }
-            });
-            //End Style Y Axis 
-            // set titles for axises
-            chart.xAxis().title('Years');
-            chart.yAxis().title('Investment in Millions');
-
-            // helper function to setup label settings for all series
-            var setupSeriesLabels = function (series, name) {
-                series.name(name);
-                series.tooltip().valuePrefix('$');
-                series.stroke('3 #fff 1');
-                // series.hovered().stroke('3 #fff 1');
-            };
-
-            // temp variable to store series instance
-            var series1;
-            var series2;
-            var series3;
-            var series4;
-
-            // create first series with mapped data
-            series1 = chart.column(seriesData_1);
-            series1.normal().fill("#bc5090", 0.9);
-            series1.hovered().fill("#bc5090", 0.1);
-            series1.selected().fill("#bc5090", 0.5);
-            series1.normal().stroke("#bc5090", 1, "10 5", "round");
-            series1.hovered().stroke("#bc5090", 2, "10 5", "round");
-            series1.selected().stroke("#bc5090", 4, "10 5", "round");
-            setupSeriesLabels(series1, 'Preventive Vaccines');
-
-            // create second series with mapped data
-            series2 = chart.column(seriesData_2);
-            series2.normal().fill("#ff6361", 0.9);
-            series2.hovered().fill("#ff6361", 0.1);
-            series2.selected().fill("#ff6361", 0.5);
-            series2.normal().stroke("#ff6361", 1, "10 5", "round");
-            series2.hovered().stroke("#ff6361", 2, "10 5", "round");
-            series2.selected().stroke("#ff6361", 4, "10 5", "round");
-            setupSeriesLabels(series2, 'Microbicides');
-
-            // create third series with mapped data
-            series3 = chart.column(seriesData_3);
-            series3.normal().fill("#003f5c", 0.9);
-            series3.hovered().fill("#003f5c", 0.1);
-            series3.selected().fill("#003f5c", 0.5);
-            series3.normal().stroke("#003f5c", 1, "10 5", "round");
-            series3.hovered().stroke("#003f5c", 2, "10 5", "round");
-            series3.selected().stroke("#003f5c", 4, "10 5", "round");
-            setupSeriesLabels(series3, 'Vertical Transmission Prevention');
-
-            // create fourth series with mapped data
-            series4 = chart.column(seriesData_4);
-            series4.normal().fill("#6EA8F2", 0.9);
-            series4.hovered().fill("#6EA8F2", 0.1);
-            series4.selected().fill("#6EA8F2", 0.5);
-            series4.normal().stroke("#6EA8F2", 1, "10 5", "round");
-            series4.hovered().stroke("#6EA8F2", 2, "10 5", "round");
-            series4.selected().stroke("#6EA8F2", 4, "10 5", "round");
-            setupSeriesLabels(series4, 'Pre-Exposure Prophylaxis');
-
-             // create fourth series with mapped data
-             series5 = chart.column(seriesData_5);
-            series5.normal().fill("#F3D803", 0.9);
-            series5.hovered().fill("#F3D803", 0.1);
-            series5.selected().fill("#F3D803", 0.5);
-            series5.normal().stroke("#F3D803", 1, "10 5", "round");
-            series5.hovered().stroke("#F3D803", 2, "10 5", "round");
-            series5.selected().stroke("#F3D803", 4, "10 5", "round");
-            setupSeriesLabels(series5, 'Treatment as Prevention');
-
-
-             // create fourth series with mapped data
-             series6 = chart.column(seriesData_6);
-            series6.normal().fill("#F22020", 0.9);
-            series6.hovered().fill("#F22020", 0.1);
-            series6.selected().fill("#F22020", 0.5);
-            series6.normal().stroke("#F22020", 1, "10 5", "round");
-            series6.hovered().stroke("#F22020", 2, "10 5", "round");
-            series6.selected().stroke("#F22020", 4, "10 5", "round");
-            setupSeriesLabels(series6, 'Voluntary Medical Male Circumcision');
-           
-
-             // create fourth series with mapped data
-             series7 = chart.column(seriesData_7);
-            series7.normal().fill("#3F5E1C", 0.9);
-            series7.hovered().fill("#3F5E1C", 0.1);
-            series7.selected().fill("#3F5E1C", 0.5);
-            series7.normal().stroke("#3F5E1C", 1, "10 5", "round");
-            series7.hovered().stroke("#3F5E1C", 2, "10 5", "round");
-            series7.selected().stroke("#3F5E1C", 4, "10 5", "round");
-            setupSeriesLabels(series7, 'Female Condoms');
-
-            // turn on legend
-            chart.legend().enabled(true).fontSize(13).padding([0, 0, 20, 0]);
-            chart.interactivity().hoverMode('by-x');
-            chart.tooltip().displayMode('union');
-            // initiate chart drawing
-            chart.draw();
-            // add a listener
-            chart.listen("pointClick", function (e) {
-                var index = e.iterator.getIndex();
-                var row = dataSet.row(index);
-                if (row.fillOld) {
-                    row.fill = row.fillOld; delete row.fillOld;
-                } else {
-                    row.fillOld = row.fill; row.fill = "green";
-                }
-                console.log(index)
-                let valueFirst=parseInt(row[1])*1000000
-                
-                $('#valueFirst').html(parseInt(row[1])+"")
-                $('#valueSecond').html(parseInt(row[2])+"")
-                $('#valueThird').html(parseInt(row[3])+"")
-                $('#valueFourth').html(parseInt(row[4])+"")
-                $('#valueFive').html(parseInt(row[5])+"")
-                $('#valueSix').html(parseInt(row[6])+"")
-                $('#valueSeven').html(parseInt(row[7])+"")
+        <div class="col-md-3">
         
-
-                $('.num').html("(" + row[0] + ")")
-
+      <div class="row mt-3">
 
 
-                //   dataSet.row(index, row);
-            });
+
+
+        <div class="col-md-12 custom-icon-container">
+          <div
+            class="w-100 custom-border   d-flex flex-row justify-content-around align-items-center grow"
+          >
+            <img
+              src="/static/SVG/1.svg"
+              class="img-fluid custom-vector-image pull-left w-25"
+            
+            />
+            <div class="d-flex flex-column  w-75">
+            <span
+              class="font-weight-bold text-dark text-left custom-icon-text"
+            >
+              Preventive Vaccines
+            </span>
+            <span class="text-muted font-weight-bold mt-1 custom-icon-text" id="valueFirst">$18</span>
+            
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+         <div class="col-md-12 custom-icon-container">
+          <div
+            class="w-100 custom-border   d-flex flex-row justify-content-around align-items-center grow"
+          >
+            <img
+              src="/static/SVG/2.svg"
+              class="img-fluid custom-vector-image pull-left w-25"
+            
+            />
+            <div class="d-flex flex-column  w-75">
+            <span
+              class="font-weight-bold text-dark text-left custom-icon-text"
+            >
+              Microbicides
+            </span>
+            <span class="text-muted font-weight-bold mt-1 custom-icon-text" id="valueSecond">$18</span>
+            
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+         <div class="col-md-12 custom-icon-container">
+          <div
+            class="w-100 custom-border   d-flex flex-row justify-content-around align-items-center grow"
+          >
+            <img
+              src="/static/SVG/3.svg"
+              class="img-fluid custom-vector-image pull-left w-25"
+            
+            />
+           <div class="d-flex flex-column  w-75">
+            <span
+              class="font-weight-bold text-dark text-left custom-icon-text"
+            >
+              Prevention of 
+            
+              Vertical Transmission
+            </span>
+            <span class="text-muted font-weight-bold mt-1 custom-icon-text" id="valueThird">$18</span>
+            
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+         <div class="col-md-12 custom-icon-container">
+          <div
+            class="w-100 custom-border   d-flex flex-row justify-content-around align-items-center grow"
+          >
+            <img
+              src="/static/SVG/3.svg"
+              class="img-fluid custom-vector-image pull-left w-25"
+            
+            />
+            <div class="d-flex flex-column  w-75">
+            <span
+              class="font-weight-bold text-dark text-left custom-icon-text"
+            >
+             Pre-exposure Prophylaxis
+            </span>
+            <span class="text-muted font-weight-bold mt-1 custom-icon-text" id="valueFourth">$45</span>
+            
+            </div>
+          </div>
+        </div>
+
+
+
+         <div class="col-md-12 custom-icon-container">
+          <div
+            class="w-100 custom-border   d-flex flex-row justify-content-around align-items-center grow"
+          >
+            <img
+              src="/static/SVG/4.svg"
+              class="img-fluid custom-vector-image pull-left w-25"
+            
+            />
+            <div class="d-flex flex-column  w-75">
+            <span
+              class="font-weight-bold text-dark text-left custom-icon-text"
+            >
+              Treatment as  
+              Prevention
+            </span>
+            <span class="text-muted font-weight-bold mt-1 custom-icon-text" id="valueFive">$65</span>
+            
+            </div>
+          </div>
+        </div>
+
+
+
+  <div class="col-md-12 custom-icon-container">
+          <div
+            class="w-100 custom-border   d-flex flex-row justify-content-around align-items-center grow"
+          >
+            <img
+              src="/static/SVG/5.svg"
+              class="img-fluid custom-vector-image pull-left w-25"
+            
+            />
+            <div class="d-flex flex-column  w-75">
+            <span
+              class="font-weight-bold text-dark text-left custom-icon-text"
+            >
+               Voluntary Medical <br>
+               Male Circumcision
+            </span>
+            <span class="text-muted font-weight-bold mt-1 custom-icon-text" id="valueSix">$65</span>
+            
+            </div>
+          </div>
+        </div>
+
+
+
+
+  <div class="col-md-12 custom-icon-container">
+          <div
+            class="w-100 custom-border   d-flex flex-row justify-content-around align-items-center grow"
+          >
+            <img
+              src="/static/SVG/6.svg"
+              class="img-fluid custom-vector-image pull-left w-25"
+            
+            />
+            <div class="d-flex flex-column  w-75">
+            <span
+              class="font-weight-bold text-dark text-left custom-icon-text"
+            >
+            Female Condoms
+            </span>
+            <span class="text-muted font-weight-bold mt-1 custom-icon-text" id="valueSeven">$65</span>
+            
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+      </div>
+      <!--  -->
+
+      <!--  -->
+    </div>
+        </div>
+      </div>
+
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      anychart.onDocumentReady(function () {
+        // create data set on our data
+        var dataSet = anychart.data.set([
+          ["2001", 10, 20, 30, 40, 50, 60, 70],
+          ["2002", 11, 22, 33, 44, 55, 66, 77],
+          ["2003", 12, 22, 32, 42, 52, 62, 72],
+          ["2004", 13, 23, 33, 43, 53, 63, 73],
+          ["2005", 11, 22, 33, 41, 55, 65, 75],
+          ["2006", 18, 28, 38, 48, 58, 68, 78],
+          ["2007", 19, 29, 39, 49, 59, 69, 79],
+          ["2008", 15, 25, 35, 45, 55, 65, 75],
+          ["2009", 11, 21, 31, 41, 51, 61, 71],
+          ["2010", 19, 29, 39, 49, 59, 65, 75],
+          ["2011", 14, 24, 34, 44, 54, 64, 74],
+          ["2012", 12, 22, 32, 42, 52, 62, 72],
+          ["2013", 11, 21, 31, 41, 51, 61, 71],
+          ["2014", 19, 28, 32, 44, 55, 69, 78],
+          ["2015", 10, 20, 30, 40, 50, 60, 70],
+          ["2016", 13, 23, 33, 43, 53, 63, 73],
+          ["2017", 14, 25, 35, 46, 56, 66, 74],
+          ["2018", 18, 25, 35, 45, 55, 65, 75],
+          ["2019", 15, 24, 36, 46, 56, 66, 74],
+          ["2020", 11, 22, 36, 45, 58, 69, 78],
+        ]);
+
+        // map data for the first series, take x from the zero column and value from the first column of data set
+        var seriesData_1 = dataSet.mapAs({ x: 0, value: 1 });
+
+        // map data for the second series, take x from the zero column and value from the second column of data set
+        var seriesData_2 = dataSet.mapAs({ x: 0, value: 2 });
+
+        // map data for the third series, take x from the zero column and value from the third column of data set
+        var seriesData_3 = dataSet.mapAs({ x: 0, value: 3 });
+
+        // map data for the fourth series, take x from the zero column and value from the fourth column of data set
+        var seriesData_4 = dataSet.mapAs({ x: 0, value: 4 });
+        var seriesData_5 = dataSet.mapAs({ x: 0, value: 5 });
+        var seriesData_6 = dataSet.mapAs({ x: 0, value: 6 });
+        var seriesData_7 = dataSet.mapAs({ x: 0, value: 7 });
+
+        // create bar chart
+        var chart = anychart.column();
+
+        // turn on chart animation
+        chart.animation(true);
+
+        // set container id for the chart
+        chart.container("container");
+        chart.padding([10, 40, 5, 20]);
+
+        // set scale minimum
+        chart.yScale().minimum(0);
+
+        // force chart to stack values by Y scale.
+        chart.yScale().stackMode("value");
+
+        chart
+          .yAxis()
+          .labels()
+          .format(function () {
+            return "$" + this.value.toLocaleString();
+          });
+        //Style X Axis
+        var labels = chart.xAxis().labels();
+        labels.fontFamily("Courier");
+        labels.fontSize(12);
+        labels.fontColor("#808080");
+        labels.fontWeight("bold");
+        labels.useHtml(false);
+    //    var xLabelsBackground = chart.xAxis().labels().background();
+    //    xLabelsBackground.enabled(true);
+     //   xLabelsBackground.stroke("#cecece");
+        //xLabelsBackground.cornerType("round");
+       // xLabelsBackground.corners(5);
+
+        //End Style X Axis
+
+        //Style yAxis
+        // wait until chart is displayed
+        chart.listen("chartDraw", function () {
+          // get a number of labels on the Y axis
+          var count = chart.yAxis().labels().getLabelsCount();
+          // go to through all labels
+          for (var i = 0; i < count; i++) {
+            // get label object
+            var label = chart.yAxis().labels().getLabel(i);
+            // get value of the scale this label
+            value = chart.yAxis().scale().ticks().get()[i];
+            // get chart average
+            avg = chart.getSeries(0).getStat("average");
+            // if the value is greater
+            if (value > avg) {
+              label.fontFamily("Courier");
+        label.fontSize(12);
+        label.fontColor("#808080");
+        label.fontWeight("bold");
+              label.draw();
+            }
+          }
         });
-    </script>
-</body>
+        //End Style Y Axis
+        // set titles for axises
+        chart.xAxis().title("Years");
+        chart.yAxis().title("Investment in Millions");
 
+var title = chart.tooltip().title();
+title.fontColor("#973490");
+title.fontWeight("bold");
+title.fontSize(18);
+
+chart.tooltip().background().fill("#fff");
+chart.tooltip().fontColor("#000");
+chart.tooltip().fontWeight("bold");
+chart.tooltip().hAlign('right');
+
+
+        // helper function to setup label settings for all series
+        var setupSeriesLabels = function (series, name) {
+          series.name(name);
+          series.tooltip().valuePrefix("$");
+          series.stroke("3 #fff 1");
+          // series.hovered().stroke('3 #fff 1');
+        };
+
+        // temp variable to store series instance
+        var series1;
+        var series2;
+        var series3;
+        var series4;
+
+        // create first series with mapped data
+        series1 = chart.column(seriesData_1);
+        series1.normal().fill("#973490", 0.9);
+        series1.hovered().fill("#973490", 0.1);
+        series1.selected().fill("#973490", 0.5);
+        series1.normal().stroke("#973490", 1, "10 5", "round");
+        series1.hovered().stroke("#973490", 2, "10 5", "round");
+        series1.selected().stroke("#973490", 4, "10 5", "round");
+        setupSeriesLabels(series1, "Preventive Vaccines");
+
+        // create second series with mapped data
+        series2 = chart.column(seriesData_2);
+        series2.normal().fill("#b8428c", 0.9);
+        series2.hovered().fill("#b8428c", 0.1);
+        series2.selected().fill("#b8428c", 0.5);
+        series2.normal().stroke("#b8428c", 1, "10 5", "round");
+        series2.hovered().stroke("#b8428c", 2, "10 5", "round");
+        series2.selected().stroke("#b8428c", 4, "10 5", "round");
+        setupSeriesLabels(series2, "Microbicides");
+
+        // create third series with mapped data
+        series3 = chart.column(seriesData_3);
+        series3.normal().fill("#db5087", 0.9);
+        series3.hovered().fill("#db5087", 0.1);
+        series3.selected().fill("#db5087", 0.5);
+        series3.normal().stroke("#db5087", 1, "10 5", "round");
+        series3.hovered().stroke("#db5087", 2, "10 5", "round");
+        series3.selected().stroke("#db5087", 4, "10 5", "round");
+        setupSeriesLabels(series3, "Vertical Transmission Prevention");
+
+        // create fourth series with mapped data
+        series4 = chart.column(seriesData_4);
+        series4.normal().fill("#e96a8d", 0.9);
+        series4.hovered().fill("#e96a8d", 0.1);
+        series4.selected().fill("#e96a8d", 0.5);
+        series4.normal().stroke("#e96a8d", 1, "10 5", "round");
+        series4.hovered().stroke("#e96a8d", 2, "10 5", "round");
+        series4.selected().stroke("#e96a8d", 4, "10 5", "round");
+        setupSeriesLabels(series4, "Pre-Exposure Prophylaxis");
+
+        // create fourth series with mapped data
+        series5 = chart.column(seriesData_5);
+        series5.normal().fill("#ee8b97", 0.9);
+        series5.hovered().fill("#ee8b97", 0.1);
+        series5.selected().fill("#ee8b97", 0.5);
+        series5.normal().stroke("#ee8b97", 1, "10 5", "round");
+        series5.hovered().stroke("#ee8b97", 2, "10 5", "round");
+        series5.selected().stroke("#ee8b97", 4, "10 5", "round");
+        setupSeriesLabels(series5, "Treatment as Prevention");
+
+        // create fourth series with mapped data
+        series6 = chart.column(seriesData_6);
+        series6.normal().fill("#f3aca2", 0.9);
+        series6.hovered().fill("#f3aca2", 0.1);
+        series6.selected().fill("#f3aca2", 0.5);
+        series6.normal().stroke("#f3aca2", 1, "10 5", "round");
+        series6.hovered().stroke("#f3aca2", 2, "10 5", "round");
+        series6.selected().stroke("#f3aca2", 4, "10 5", "round");
+        setupSeriesLabels(series6, "Voluntary Medical Male Circumcision");
+
+        // create fourth series with mapped data
+        series7 = chart.column(seriesData_7);
+        series7.normal().fill("#f9cdac", 0.9);
+        series7.hovered().fill("#f9cdac", 0.1);
+        series7.selected().fill("#f9cdac", 0.5);
+        series7.normal().stroke("#f9cdac", 1, "10 5", "round");
+        series7.hovered().stroke("#f9cdac", 2, "10 5", "round");
+        series7.selected().stroke("#f9cdac", 4, "10 5", "round");
+        setupSeriesLabels(series7, "Female Condoms");
+
+        // turn on legend
+        chart.legend().enabled(true).fontSize(13).padding([0, 0, 20, 0]);
+        chart.interactivity().hoverMode("by-x");
+        chart.tooltip().displayMode("union");
+        // initiate chart drawing
+        chart.draw();
+        // add a listener
+        chart.listen("pointClick", function (e) {
+          var index = e.iterator.getIndex();
+          var row = dataSet.row(index);
+          if (row.fillOld) {
+            row.fill = row.fillOld;
+            delete row.fillOld;
+          } else {
+            row.fillOld = row.fill;
+            row.fill = "green";
+          }
+          console.log(index);
+          let valueFirst = parseInt(row[1]) * 1000000;
+
+          $("#valueFirst").html("$"+parseInt(row[1]) + "");
+          $("#valueSecond").html("$"+parseInt(row[2]) + "");
+          $("#valueThird").html("$"+parseInt(row[3]) + "");
+          $("#valueFourth").html("$"+parseInt(row[4]) + "");
+          $("#valueFive").html("$"+parseInt(row[5]) + "");
+          $("#valueSix").html("$"+parseInt(row[6]) + "");
+          $("#valueSeven").html("$"+parseInt(row[7]) + "");
+
+          $(".num").html("(" + row[0] + ")");
+
+          //   dataSet.row(index, row);
+        });
+      });
+    </script>
+  </body>
 </html>
