@@ -97,9 +97,9 @@
   pointer-events: none;
   white-space: nowrap;
   margin: 10px;
-  -webkit-box-shadow: 15px 20px 28px -7px rgba(0,0,0,0.75);
--moz-box-shadow: 15px 20px 28px -7px rgba(0,0,0,0.75);
-box-shadow: 15px 20px 28px -7px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 16px 13px 36px 13px rgba(0,0,0,0.27);
+-moz-box-shadow: 16px 13px 36px 13px rgba(0,0,0,0.27);
+box-shadow: 16px 13px 36px 13px rgba(0,0,0,0.27);
 }
 
 .anychart-tooltip-separator {
@@ -406,7 +406,20 @@ box-shadow: 15px 20px 28px -7px rgba(0,0,0,0.75);
         // turn on X Scroller
         chart.xScroller(true);
     chart.yScroller(true);
+chart.xScroller().fill("#f9cdac");
 
+// set the selected fill color
+chart.xScroller().selectedFill("#f9cdac");
+
+// set the stroke of the bar
+chart.xScroller().outlineStroke("#f9cdac", 2);
+chart.yScroller().fill("#f9cdac");
+
+// set the selected fill color
+chart.yScroller().selectedFill("#f9cdac");
+
+// set the stroke of the bar
+chart.yScroller().outlineStroke("#f9cdac", 2);
         // turn on chart animation
         chart.animation(true);
 
