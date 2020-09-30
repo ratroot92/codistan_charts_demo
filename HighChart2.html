@@ -1,296 +1,382 @@
 <!-- Totorial https://www.anychart.com/products/anymap/gallery/Maps_General_Features/World_Choropleth_Map.php
               https://playground.anychart.com/gallery/src/Maps_General_Features/World_Choropleth_Map
      -->
-     <!-- Ahmedn -->
+<!-- Ahmedn -->
 <html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://github.com/downloads/lafeber/world-flags-sprite/flags32.css"
+    />
 
-<head>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="https://github.com/downloads/lafeber/world-flags-sprite/flags32.css">
+    <style>
+      #chartdiv {
+        width: 100%;
+        height: 700px;
+        overflow: hidden;
+      }
+      .custom-badge {
+        height: 15px;
+        width: 15px;
+        border-radius: 50% !important;
+      }
 
-  <style type="text/css">
-  html,body{
-    overflow-x: hidden;
+      li {
+        margin-top: 5px;
+      }
 
-  }
-    #map {
-      height: 100%!important;
-      width: 100%!important;
-      margin: 0 auto;
+      .custom-name {
+        font-weight: bold;
+        font-size: 13px;
+        margin-right: 15px;
+        margin-top: 5px;
+      }
+      .custom-tooltip-vector{
+        width:18px;
+        height:18px;
      
-    }
-
-    .highcharts-tooltip>span {
-      padding: 10px;
-      white-space: normal !important;
-      width: 200px;
-    }
-
-    .loading {
-      margin-top: 10em;
-      text-align: center;
-      color: gray;
-    }
-
-    .f32 .flag {
-      vertical-align: middle !important;
-    }
-
-    .custom-badge {
-      height: 15px;
-      width: 15px;
-      border-radius: 50%!important;
+      }
+      .custom-legend-vector{
+        width:25px;
+        height:25px;
      
-    }
+      }
 
-    li {
-      margin-top: 5px;
-      ;
-    }
+      .custom-tooltip-text{
+        font-size:14px;
+        color:#000;
+      }
+      .custom-tooltip-value{
+        color:#000;
+         font-size:14px;
+   
+      }
+      .custom-center{
+        display:flex!important;
+        justify-content:center!important;
+        align-items:center!important;
+      }
+      .tooltip-wrapper{
+        height:200px!important;
+        width:300px!important;
+        border-radius:5px!important;
+        margin:0px!important;
+      }
+      .custom-legends{
+        position:absolute;
+        bottom:50px;
+        left:0px;
+      }
+    </style>
+  </head>
 
-    .custom-name {
-      font-weight: bold;
-      font-size: 13px;
-      margin-right: 15px;
-      margin-top: 5px;
-      ;
-    }
+  <body>
+    <!-- start -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-9">
+          <div id="chartdiv"></div>
+          <div class="row">
+          <div class="col-md-3  custom-legends">
+       <div class="d-flex flex-row justify-content-start align-items-center mt-4" > <img src="/static/SVG/22.svg" class="custom-legend-vector"/><span class="ml-3">Public </span></div>
+           <div class="d-flex flex-row justify-content-start align-items-center mt-4" > <img src="/static/SVG/22.svg" class="custom-legend-vector"/><span class="ml-3">Philonthropy </span></div>
+             <div class="d-flex flex-row justify-content-start align-items-center mt-4" > <img src="/static/SVG/33.svg" class="custom-legend-vector"/><span class="ml-3">Commercial </span></div>
 
-    .custom-name:hover {
-      color: green;
-      ;
-    }
-    .grow { transition: all .2s ease-in-out; }
-.grow:hover { transform: scale(1.1); }
-  </style>
-</head>
-
-<body>
-
-  <!-- start -->
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12 m-0 p-0 ">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark m-0 p-0 ">
-          <a class="navbar-brand" href="/">DEMO</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-              <li class="nav-item ">
-                <a class="nav-link" href="/">World-Choropleth-Map </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="/highchart">World-Map<span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/barchart">Bar-Chart</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
-                  More
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-
-                  <!-- <a class="dropdown-item" href="/barchart">BarChart</a>
-                  <a class="dropdown-item" href="/highchart">HighChart 2</a> -->
-                </div>
-              </li>
-            </ul>
           </div>
-        </nav>
-      </div>
-
-
-    </div>
-  </div>
-  <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-10 brder">
-      <div id="map"></div>
-    </div>
-    <div class="col-md-2 ">
-
-      <div class="row d-flex flex-row justify-content-center align-items-start" style="height:700px;">
-      <!-- <div class="col-md-12">
-          <ul class="list-unstyled ">
-            <li class="d-flex flex-row justify-content-start align-items-center mt-1 grow"> <span class="badge"><img
-                  src="/static/SVG/11.svg" class="img-fluid"
-                  style="height:25px;width:30px;" /></span><span class="ml-3 font-weight-bold">Public</span></li>
-            <li class="d-flex flex-row justify-content-start align-items-center mt-1 grow"> <span class="badge"><img
-                  src="/static/SVG/22.svg" class="img-fluid"
-                  style="height:25px;width:30px;" /></span><span class="ml-3 font-weight-bold">Philanthropic</span></li>
-
-            <li class="d-flex flex-row justify-content-start align-items-center mt-1 grow"> <span class="badge"><img
-                  src="/static/SVG/33.svg" class="img-fluid"
-                  style="height:25px;width:30px;" /></span><span class="ml-3 font-weight-bold">Commercial</span></li>
-
-
-          </ul>
-        </div>-->
-        <div class="col-md-12 ml-2">
-          <ul class="list-unstyled ">
-            <li class="d-flex flex-row justify-content-end align-items-center grow mt-4"> 
-            <span class="custom-name">North America</span>
-            <span class="badge custom-badge"style="background-color:#973490;">&nbsp;</span>
-            </li>
-            <li class="d-flex flex-row justify-content-end align-items-center grow mt-4"> <span class="custom-name">Latin America & the
-                Caribbean</span>
-                 <span class="badge custom-badge"style="background-color:#b8428c;">&nbsp;</span>
-                 </li>
-            <li class="d-flex flex-row justify-content-end align-items-center grow mt-4">
-             <span class="custom-name">Europe</span>
-                <span class="badge custom-badge"style="background-color:#db5087;">&nbsp;</span>
+          </div>
+        </div>
+        <div class="col-md-3" style="height: 700px">
+          <div class="row h-100">
+            <div
+              class="col-md-12 d-flex flex-row justify-content-center align-items-center h-100"
+            >
+              <ul class="list-unstyled">
+                <li
+                  class="d-flex flex-row justify-content-end align-items-center grow mt-4"
+                >
+                  <span class="custom-name">Germany</span>
+                  <span
+                    class="badge custom-badge"
+                    style="background-color: #973490"
+                    >&nbsp;</span
+                  >
                 </li>
-            <li class="d-flex flex-row justify-content-end align-items-center grow mt-4"> 
-          
-                <span class="custom-name">Africa</span>
-                 <span class="badge custom-badge"style="background-color:#e96a8d;">&nbsp;</span>
+                <li
+                  class="d-flex flex-row justify-content-end align-items-center grow mt-4"
+                >
+                  <span class="custom-name"> USA</span>
+                  <span
+                    class="badge custom-badge"
+                    style="background-color: #b8428c"
+                    >&nbsp;</span
+                  >
                 </li>
-            <li class="d-flex flex-row justify-content-end align-items-center grow mt-4"> <span class="custom-name">East,South & Southren
-                Asia</span><span class="badge custom-badge "
-                style="background-color:f3aca2;">&nbsp;</span></li>
-            <li class="d-flex flex-row justify-content-end align-items-center grow mt-4"> 
-            <span class="custom-name">Oceania</span>
-            <span class="badge custom-badge "
-                style="background-color:f9cdac;">&nbsp;</span>
-            </li>
-
-          </ul>
+                <li
+                  class="d-flex flex-row justify-content-end align-items-center grow mt-4"
+                >
+                  <span class="custom-name">Australia</span>
+                  <span
+                    class="badge custom-badge"
+                    style="background-color: #db5087"
+                    >&nbsp;</span
+                  >
+                </li>
+                <li
+                  class="d-flex flex-row justify-content-end align-items-center grow mt-4"
+                >
+                  <span class="custom-name">United Kingdom</span>
+                  <span
+                    class="badge custom-badge"
+                    style="background-color: #e96a8d"
+                    >&nbsp;</span
+                  >
+                </li>
+                <li
+                  class="d-flex flex-row justify-content-end align-items-center grow mt-4"
+                >
+                  <span class="custom-name"> Canada</span
+                  ><span
+                    class="badge custom-badge"
+                    style="background-color: f3aca2"
+                    >&nbsp;</span
+                  >
+                </li>
+                <li
+                  class="d-flex flex-row justify-content-end align-items-center grow mt-4"
+                >
+                  <span class="custom-name">India</span>
+                  <span
+                    class="badge custom-badge"
+                    style="background-color: f9cdac"
+                    >&nbsp;</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-
     </div>
 
-  </div>
-</div>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+
+    <!-- Resources -->
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/geodata/worldLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+
+    <!-- Chart code -->
+    <script>
+      am4core.ready(function () {
+        // Themes begin
+        am4core.useTheme(am4themes_animated);
+        // Themes end
+
+        // Create map instance
+        var chart = am4core.create("chartdiv", am4maps.MapChart);
+
+        // Set map definition
+        chart.geodata = am4geodata_worldLow;
+
+        // Set projection
+        chart.projection = new am4maps.projections.Miller();
+
+        // Create map polygon series
+        var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+
+        // Exclude Antartica
+        polygonSeries.exclude = ["AQ"];
+
+        // Make map load polygon (like country names) data from GeoJSON
+        polygonSeries.useGeodata = true;
+
+        // Configure series
+        var polygonTemplate = polygonSeries.mapPolygons.template;
+        polygonTemplate.toolTip="{name}";
+        polygonTemplate.polygon.fillOpacity = 0.6;
+
+        // Create hover state and set alternative fill color
+        var hs = polygonTemplate.states.create("hover");
+        hs.properties.fill = chart.colors.getIndex(0);
+
+        // Add image series
+        var imageSeries = chart.series.push(new am4maps.MapImageSeries());
+        imageSeries.mapImages.template.propertyFields.longitude = "longitude";
+        imageSeries.mapImages.template.propertyFields.latitude = "latitude";
+        imageSeries.mapImages.template.propertyFields.url = "url";
+        imageSeries.mapImages.template.tooltipHTML = `
+        <div class="bg-white p-2 m-0 tooltip-wrapper"> 
+        <center><span class="font-weight-bold" style="color:#973490;">Investment By Sectors </span></center>
+       
+
+        <div class="row d-flex flex-row justify-content-center align-items-center mt-2">
+        <div class="col-md-4 custom-center"> </div> 
+        <div class="col-md-4 d-flex flex-row justify-content-start align-items-center"><span class=" custom-tooltip-text text-left font-weight-bold" >{title} </span></div>
+        <div class="col-md-4 custom-center"></div>             
+        </div>
 
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-    crossorigin="anonymous"></script>
-  <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+        <div class="row d-flex flex-row justify-content-center align-items-center mt-2">
+        <div class="col-md-4 custom-center"> <img src="/static/SVG/11.svg" class="custom-tooltip-vector"/></div> 
+        <div class="col-md-4 d-flex flex-row justify-content-start align-items-center"><span class=" custom-tooltip-text text-left" >Public </span></div>
+        <div class="col-md-4 custom-center"> <span  class="custom-tooltip-value" >{public}  M</span></div>             
+        </div>
 
-  <script src="https://code.highcharts.com/maps/modules/data.js"></script>
-  <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
-  <script src="https://code.highcharts.com/maps/modules/offline-exporting.js"></script>
-  <script src="https://code.highcharts.com/mapdata/custom/world.js"></script>
 
-  <!-- Flag sprites service provided by Martijn Lafeber, https://github.com/lafeber/world-flags-sprite/blob/master/LICENSE -->
+        <div class="row d-flex flex-row justify-content-center align-items-center mt-2">
+        <div class="col-md-4 custom-center"> <img src="/static/SVG/22.svg" class="custom-tooltip-vector"/></div> 
+        <div class="col-md-4 d-flex flex-row justify-content-start align-items-center"><span class=" custom-tooltip-text text-left" >Philanthropic </span></div>
+        <div class="col-md-4 custom-center"> <span  class="custom-tooltip-value" >{philanthropic}  M</span></div>             
+        </div>
 
 
 
-  <script>
+        <div class="row d-flex flex-row justify-content-center align-items-center mt-2">
+        <div class="col-md-4 custom-center"> <img src="/static/SVG/33.svg" class="custom-tooltip-vector"/></div> 
+        <div class="col-md-4 d-flex flex-row justify-content-start align-items-center"><span class=" custom-tooltip-text text-left" >Commercial </span></div>
+        <div class="col-md-4 custom-center"> <span  class="custom-tooltip-value" >{commercial}  M</span></div>
+        </div>
 
-    Highcharts.getJSON('/api2', function (data) {
-      const jsonLength = data.length
-      // Prevent logarithmic errors in color calulcation
-      data.forEach(function (p) {
-        console.log(p.total)
-        p.total = (p.total < 1 ? 1 : p.total);
-      });
 
-      // Initiate the chart
-      Highcharts.mapChart('map', {
 
-        chart: {
-          map: 'custom/world',
+         <div class="row d-flex flex-row justify-content-center align-items-center mt-2">
+        <div class="col-md-4  custom-center"> </div> 
+        <div class="col-md-4  custom-center"><span class=" custom-tooltip-text text-danger font-weight-bold" >Total </span></div>
+        <div class="col-md-4  custom-center"> <span  class="custom-tooltip-value text-danger font-weight-bold" >{total}  M</span></div>             
+        </div>            
 
-        },
 
-        title: {
-          text: ' Top Global Investment in HIV Detection ',
-          style: {
-            color: '#808080',
-            backgroundColor: '',
-            fontSize: "25",
-            fontWeight: '700',
 
-          }
-        },
-        
-
-        legend: {
-          title: {
-            text: 'Global Investment HIV',
-            style: {
-              color: ( // theme
-                Highcharts.defaultOptions &&
-                Highcharts.defaultOptions.legend &&
-                Highcharts.defaultOptions.legend.title &&
-                Highcharts.defaultOptions.legend.title.style &&
-                Highcharts.defaultOptions.legend.title.style.color
-              ) || 'black'
-            }
-          }
-        },
-
-        mapNavigation: {
-          enabled: true,
-          buttonOptions: {
-            verticalAlign: 'bottom'
-          }
-        },
-
-        tooltip: {
-          backgroundColor: 'none',
-          borderWidth: 0,
-
-          shadow: false,
-          useHTML: true,
-          padding: 0,
-          pointFormat: '<div class="bg-white p-2"><p class="text-center font-weight-bold"style="#973490">Investment By Sectors</p><span class="f32"><span class="flag {point.properties.hc-key}">' +
-            '</span></span> <span class="ml-3 mt-1" style="color:#000;font-weight:bold;font-size:14px;">{point.name}</span><br>' +
-            '<img src="/static/SVG/11.svg" style="width:20px;height:20px;margin-right:3px;margin-top:5px;"/><span style="font-size:12px"><span class="font-weight-bold ml-3" style="color:#000;margin-top:5px;" >Public </span> <span  class="pull-right mt-1" style="color:#000;font-weight:bold;">{point.public}  M</span></span><br>' +
-            '<img src="/static/SVG/22.svg" style="width:20px;height:20px;margin-right:3px;margin-top:5px;"/><span style="font-size:12px"><span class="font-weight-bold ml-3" style="color:#000;margin-top:5px;" >philanthropic </span>  <span class="pull-right mt-1" style="color:#000;font-weight:bold;">{point.philanthropic} M</span></span><br>' +
-            '<img src="/static/SVG/33.svg" style="width:20px;height:20px;margin-right:3px;margin-top:5px;"/><span style="font-size:12px"><span class="font-weight-bold ml-3" style="color:#000;margin-top:5px;">Commercial </span> <span   class="pull-right mt-1" style="color:#000;;font-weight:bold;">{point.commercial} M</span></span><br>' +
-            '<span class="font-weight-bold text-danger " style="color:#000;margin-left:40px;">Total :</span>  <span  class="pull-right mt-1" style="color:#000;;font-weight:bold;">{point.total} M</span></span><br>'+
-            '</div>',
+       
          
-        },
+        </div>`;
+      
+
+        var circle = imageSeries.mapImages.template.createChild(am4core.Circle);
+        circle.radius = 10;
+        circle.propertyFields.fill = "color";
+
+        var circle2 = imageSeries.mapImages.template.createChild(
+          am4core.Circle
+        );
+        circle2.radius = 6;
+        circle2.propertyFields.fill = "color";
+
+        circle2.events.on("inited", function (event) {
+          animateBullet(event.target);
+        });
 
 
-        colorAxis: {
-          min: 1,
-          max: 1000,
-          type: 'logarithmic',
-            minColor: '#f9cdac',
-            maxColor:"#973490",
-        },
 
-        series: [{
-          data: data,
-          joinBy: ['iso-a3', 'code3'],
-          name: '',
-          states: {
-            hover: {
-           //   color: '#a4edba'
-            }
-          }, dataLabels: {
-            enabled: true,
-            format: '{point.country}'
-          }
-        }]
-      });
-    });
+      function animateBullet(circle) {
+        var animation = circle.animate([{ property: "scale", from: 1, to: 5 }, { property: "opacity", from: 1, to: 0 }], 1000, am4core.ease.circleOut);
+        animation.events.on("animationended", function(event){
+          animateBullet(event.target.object);
+         })
+      }
 
-  </script>
-</body>
+        var colorSet = new am4core.ColorSet();
 
+        imageSeries.data = [
+          {
+            title: "Germany",
+            latitude: 51.1657,
+            longitude: 10.4515,
+            color: colorSet.next(),
+            public: 350,
+            philanthropic: 150,
+            commercial: 250,
+            total: 750,
+          },
+          {
+            title: "USA",
+            latitude: 37.0902,
+            longitude: 95.7129,
+            color: colorSet.next(),
+            public: 350,
+            philanthropic: 150,
+            commercial: 250,
+            total: 750,
+          },
+          {
+            title: "Australia",
+            latitude: 25.2744,
+            longitude: 133.7751,
+            color: colorSet.next(),
+            public: 350,
+            philanthropic: 150,
+            commercial: 250,
+            total: 750,
+          },
+          {
+            title: "United Kingdom",
+            latitude: 55.3781,
+            longitude: 3.436,
+            color: colorSet.next(),
+            public: 350,
+            philanthropic: 150,
+            commercial: 250,
+            total: 750,
+          },
+          {
+            title: "Canada",
+            latitude: 56.1304,
+            longitude: 106.3468,
+            color: colorSet.next(),
+            public: 350,
+            philanthropic: 150,
+            commercial: 250,
+            total: 750,
+          },
+          {
+            title: "India",
+            latitude: 20.5937,
+            longitude: 78.9629,
+            color: colorSet.next(),
+            public: 350,
+            philanthropic: 150,
+            commercial: 250,
+            total: 750,
+          },
+          {
+            title: "Russia",
+            latitude: 61.524,
+            longitude: 105.3188,
+            color: colorSet.next(),
+            public: 350,
+            philanthropic: 150,
+            commercial: 250,
+            total: 750,
+          },
+        ];
+      }); // end am4core.ready()
+    </script>
+  </body>
 </html>
-
-
-<!-- json data -->
-<!-- https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/samples/data/world-population-density.json -->
-<!-- https://www.highcharts.com/demo/maps/tooltip -->
