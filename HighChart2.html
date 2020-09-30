@@ -80,6 +80,7 @@
         bottom:100px;
         left:0px;
       }
+     
     </style>
   </head>
 
@@ -278,7 +279,7 @@ polygonTemplate.polygon.strokeWidth="0";
 // Create hover state and set alternative fill color
 var hs = polygonTemplate.states.create("hover");
 hs.properties.fill = chart.colors.getIndex(0);
-
+chart.logo.height = -15000;
         // Add image series
         var imageSeries = chart.series.push(new am4maps.MapImageSeries());
         imageSeries.mapImages.template.propertyFields.longitude = "longitude";
@@ -297,13 +298,13 @@ hs.properties.fill = chart.colors.getIndex(0);
        
 
         <div class="row d-flex flex-row justify-content-center align-items-center mt-2">
-        <div class="col-md-4 custom-center"> </div> 
+        <div class="col-md-4 custom-center"> <img src="{flag}" style="height:25px;width:40px;"/></div> 
         <div class="col-md-4 d-flex flex-row justify-content-start align-items-center"><span class=" custom-tooltip-text text-left font-weight-bold" >{title} </span></div>
         <div class="col-md-4 custom-center"></div>             
         </div>
 
 
-        <div class="row d-flex flex-row justify-content-center align-items-center mt-2">
+        <div class="row d-flex flex-row justify-content-center align-items-center mt-3">
         <div class="col-md-4 custom-center"> <img src="/static/SVG/11.svg" class="custom-tooltip-vector"/></div> 
         <div class="col-md-4 d-flex flex-row justify-content-start align-items-center"><span class=" custom-tooltip-text text-left" >Public </span></div>
         <div class="col-md-4 custom-center"> <span  class="custom-tooltip-value" >{public}  M</span></div>             
@@ -367,6 +368,7 @@ hs.properties.fill = chart.colors.getIndex(0);
         imageSeries.data = [
           {
             title: "Germany",
+            flag:"/static/flags/germany.png",
             latitude: 51.1657,
             longitude: 10.4515,
             color: "#973490",
@@ -377,6 +379,7 @@ hs.properties.fill = chart.colors.getIndex(0);
           },
           {
             title: "USA",
+              flag:"/static/flags/usa.png",
             latitude: 37.0902,
             longitude: -95.7129,
              color: "#b8428c",
@@ -387,7 +390,8 @@ hs.properties.fill = chart.colors.getIndex(0);
           },
           {
             title: "Australia",
-            latitude: 25.2744,
+              flag:"/static/flags/australia.png",
+            latitude: -25.2744,
             longitude: 133.7751,
              color: "#db5087",
             public: 350,
@@ -397,6 +401,7 @@ hs.properties.fill = chart.colors.getIndex(0);
           },
           {
             title: "United Kingdom",
+              flag:"/static/flags/uk.png",
             latitude: 55.3781,
             longitude: 3.436,
              color: "#e96a8d",
@@ -407,6 +412,7 @@ hs.properties.fill = chart.colors.getIndex(0);
           },
           {
             title: "Canada",
+              flag:"/static/flags/canada.png",
             latitude: 56.1304,
             longitude: -106.3468,
            color: "#ee8b97",
@@ -417,6 +423,7 @@ hs.properties.fill = chart.colors.getIndex(0);
           },
           {
             title: "India",
+              flag:"/static/flags/india.png",
             latitude: 20.5937,
             longitude: 78.9629,
           color: "#f9cdac",

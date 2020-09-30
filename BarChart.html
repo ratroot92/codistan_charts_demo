@@ -53,26 +53,69 @@
       }
       .custom-border {
         border-radius: 10px !important;
-        border: 1px solid #D3D3D3;
+        border: 1px solid #d3d3d3;
       }
       .custom-icon-container {
-       margin-bottom:10px;
+        margin-bottom: 10px;
       }
-      .custom-vector-image{
-          height:40px!important;
-          width:40px!important;
+      .custom-vector-image {
+        height: 40px !important;
+        width: 40px !important;
 
-        
-          margin-top:10px;
+        margin-top: 10px;
       }
-.grow { transition: all .2s ease-in-out; }
-.grow:hover { transform: scale(1.1); }
-.custom-icon-text{
-font-size:14px;
-padding-left:20px;
-
-
+      .grow {
+        transition: all 0.2s ease-in-out;
+      }
+      .grow:hover {
+        transform: scale(1.1);
+      }
+      .custom-icon-text {
+        font-size: 14px;
+        padding-left: 20px;
+        font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans,
+          Helvetica Neue, Arial, sans-serif;
+      }
+      .anychart-credits-text{
+        display :none!important;
+      }
+.anychart-credits{
+   display :none!important;
 }
+.anychart-tooltip {
+  border-radius: 3px;
+  padding: 5px 10px;
+  background: white!important;
+  border: none;
+  display: inline-block;
+  box-sizing: border-box;
+  letter-spacing: normal;
+  color: #000;
+  font-family: Verdana, Helvetica, Arial, 'sans-serif';
+  font-size: 13px;
+  position: absolute;
+  pointer-events: none;
+  white-space: nowrap;
+  margin: 10px;
+  -webkit-box-shadow: 15px 20px 28px -7px rgba(0,0,0,0.75);
+-moz-box-shadow: 15px 20px 28px -7px rgba(0,0,0,0.75);
+box-shadow: 15px 20px 28px -7px rgba(0,0,0,0.75);
+}
+
+.anychart-tooltip-separator {
+  color: rgba(206, 206, 206, 0.3);
+  border: none;
+  height: 1px;
+  margin: 5px 0;
+}
+
+.anychart-tooltip-title{
+  font-size: 16px;
+  font-weight:bold;
+  margin-top:10px;
+  margin-bottom:5px;
+}
+      
     </style>
   </head>
 
@@ -135,215 +178,172 @@ padding-left:20px;
 
     <div class="container-fluid mt-2 pl-5 pr-5">
       <div class="row">
-        <div class="col-md-9 border">
+        <div class="col-md-9">
           <div id="container"></div>
         </div>
         <div class="col-md-3">
-        
-      <div class="row mt-3">
+          <div class="row mt-3">
+            <div class="col-md-12 custom-icon-container">
+              <div
+                class="w-100 d-flex flex-row justify-content-around align-items-center grow"
+              >
+                <div
+                  class="d-flex flex-row justify-content-center align-items-center p-3"
+                >
+                  <img src="/static/SVG/1.svg" class="custom-vector-image" />
+                </div>
+                <div class="d-flex flex-column w-75">
+                  <span
+                    class="font-weight-bold text-dark text-left custom-icon-text"
+                  >
+                    Preventive Vaccines
+                  </span>
+                  <span class="text-dark mt-1 custom-icon-text" id="valueFirst"
+                    >$11</span
+                  >
+                </div>
+              </div>
+            </div>
 
+            <div class="col-md-12 custom-icon-container">
+              <div
+                class="w-100 d-flex flex-row justify-content-around align-items-center grow"
+              >
+                <div
+                  class="d-flex flex-row justify-content-center align-items-center p-3"
+                >
+                  <img src="/static/SVG/2.svg" class="custom-vector-image" />
+                </div>
+                <div class="d-flex flex-column w-75">
+                  <span
+                    class="font-weight-bold text-dark text-left custom-icon-text"
+                  >
+                    Microbicides
+                  </span>
+                  <span class="text-dark mt-1 custom-icon-text" id="valueSecond"
+                    >$22</span
+                  >
+                </div>
+              </div>
+            </div>
 
+            <div class="col-md-12 custom-icon-container">
+              <div
+                class="w-100 d-flex flex-row justify-content-around align-items-center grow"
+              >
+                <div
+                  class="d-flex flex-row justify-content-center align-items-center p-3"
+                >
+                  <img src="/static/SVG/3.svg" class="custom-vector-image" />
+                </div>
+                <div class="d-flex flex-column w-75">
+                  <span
+                    class="font-weight-bold text-dark text-left custom-icon-text"
+                  >
+                    Prevention of Vertical Transmission
+                  </span>
+                  <span class="text-dark mt-1 custom-icon-text" id="valueThird"
+                    >$36</span
+                  >
+                </div>
+              </div>
+            </div>
 
+            <div class="col-md-12 custom-icon-container">
+              <div
+                class="w-100 d-flex flex-row justify-content-around align-items-center grow"
+              >
+                <div
+                  class="d-flex flex-row justify-content-center align-items-center p-3"
+                >
+                  <img src="/static/SVG/4.svg" class="custom-vector-image" />
+                </div>
+                <div class="d-flex flex-column w-75">
+                  <span
+                    class="font-weight-bold text-dark text-left custom-icon-text"
+                  >
+                    Pre-exposure Prophylaxis
+                  </span>
+                  <span class="text-dark mt-1 custom-icon-text" id="valueFourth"
+                    >$45</span
+                  >
+                </div>
+              </div>
+            </div>
 
-        <div class="col-md-12 custom-icon-container">
-          <div
-            class="w-100    d-flex flex-row justify-content-around align-items-center grow"
-          >
-           <div class="d-flex flex-row justify-content-center align-items-center p-3">
-            <img
-              src="/static/SVG/1.svg"
-              class="custom-vector-image "
-            
-            />
-           </div>
-            <div class="d-flex flex-column  w-75">
-            <span
-              class="font-weight-bold text-dark text-left custom-icon-text"
-            >
-              Preventive Vaccines
-            </span>
-            <span class="text-muted font-weight-bold mt-1 custom-icon-text" id="valueFirst">$11</span>
-            
+            <div class="col-md-12 custom-icon-container">
+              <div
+                class="w-100 d-flex flex-row justify-content-around align-items-center grow"
+              >
+                <div
+                  class="d-flex flex-row justify-content-center align-items-center p-3"
+                >
+                  <img src="/static/SVG/5.svg" class="custom-vector-image" />
+                </div>
+                <div class="d-flex flex-column w-75">
+                  <span
+                    class="font-weight-bold text-dark text-left custom-icon-text"
+                  >
+                    Treatment as Prevention
+                  </span>
+                  <span class="text-dark mt-1 custom-icon-text" id="valueFive"
+                    >$58</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12 custom-icon-container">
+              <div
+                class="w-100 d-flex flex-row justify-content-around align-items-center grow"
+              >
+                <div
+                  class="d-flex flex-row justify-content-center align-items-center p-3"
+                >
+                  <img src="/static/SVG/6.svg" class="custom-vector-image" />
+                </div>
+                <div class="d-flex flex-column w-75">
+                  <span
+                    class="font-weight-bold text-dark text-left custom-icon-text"
+                  >
+                    Voluntary Medical <br />
+                    Male Circumcision
+                  </span>
+                  <span class="text-dark mt-1 custom-icon-text" id="valueSix"
+                    >$69</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12 custom-icon-container">
+              <div
+                class="w-100 d-flex flex-row justify-content-around align-items-center grow"
+              >
+                <div
+                  class="d-flex flex-row justify-content-center align-items-center p-3"
+                >
+                  <img src="/static/SVG/7.svg" class="custom-vector-image" />
+                </div>
+                <div class="d-flex flex-column w-75">
+                  <span
+                    class="font-weight-bold text-dark text-left custom-icon-text"
+                  >
+                    Female Condoms
+                  </span>
+                  <span class="text-dark mt-1 custom-icon-text" id="valueSeven"
+                    >$78</span
+                  >
+                </div>
+              </div>
             </div>
           </div>
+          <!--  -->
+
+          <!--  -->
         </div>
-
-
-
-
-
-         <div class="col-md-12 custom-icon-container">
-          <div
-            class="w-100    d-flex flex-row justify-content-around align-items-center grow"
-          >
-             <div class="d-flex flex-row justify-content-center align-items-center p-3">
-            <img
-              src="/static/SVG/2.svg"
-              class="custom-vector-image "
-            
-            />
-           </div>
-            <div class="d-flex flex-column  w-75">
-            <span
-              class="font-weight-bold text-dark text-left custom-icon-text"
-            >
-              Microbicides
-            </span>
-            <span class="text-muted font-weight-bold mt-1 custom-icon-text" id="valueSecond">$22</span>
-            
-            </div>
-          </div>
-        </div>
-
-
-
-
-
-
-         <div class="col-md-12 custom-icon-container">
-          <div
-            class="w-100    d-flex flex-row justify-content-around align-items-center grow"
-          >
-         <div class="d-flex flex-row justify-content-center align-items-center p-3">
-            <img
-              src="/static/SVG/3.svg"
-              class="custom-vector-image "
-            
-            />
-           </div>
-           <div class="d-flex flex-column  w-75">
-            <span
-              class="font-weight-bold text-dark text-left custom-icon-text"
-            >
-              Prevention of 
-            
-              Vertical Transmission
-            </span>
-            <span class="text-muted font-weight-bold mt-1 custom-icon-text" id="valueThird">$36</span>
-            
-            </div>
-          </div>
-        </div>
-
-
-
-
-
-         <div class="col-md-12 custom-icon-container">
-          <div
-            class="w-100    d-flex flex-row justify-content-around align-items-center grow"
-          >
-            <div class="d-flex flex-row justify-content-center align-items-center p-3">
-            <img
-              src="/static/SVG/4.svg"
-              class="custom-vector-image "
-            
-            />
-           </div>
-            <div class="d-flex flex-column  w-75">
-            <span
-              class="font-weight-bold text-dark text-left custom-icon-text"
-            >
-             Pre-exposure Prophylaxis
-            </span>
-            <span class="text-muted font-weight-bold mt-1 custom-icon-text" id="valueFourth">$45</span>
-            
-            </div>
-          </div>
-        </div>
-
-
-
-         <div class="col-md-12 custom-icon-container">
-          <div
-            class="w-100    d-flex flex-row justify-content-around align-items-center grow"
-          >
-            <div class="d-flex flex-row justify-content-center align-items-center p-3">
-            <img
-              src="/static/SVG/5.svg"
-              class="custom-vector-image "
-            
-            />
-           </div>
-            <div class="d-flex flex-column  w-75">
-            <span
-              class="font-weight-bold text-dark text-left custom-icon-text"
-            >
-              Treatment as  
-              Prevention
-            </span>
-            <span class="text-muted font-weight-bold mt-1 custom-icon-text" id="valueFive">$58</span>
-            
-            </div>
-          </div>
-        </div>
-
-
-
-  <div class="col-md-12 custom-icon-container">
-          <div
-            class="w-100    d-flex flex-row justify-content-around align-items-center grow"
-          >
-           <div class="d-flex flex-row justify-content-center align-items-center p-3">
-            <img
-              src="/static/SVG/6.svg"
-              class="custom-vector-image "
-            
-            />
-           </div>
-            <div class="d-flex flex-column  w-75">
-            <span
-              class="font-weight-bold text-dark text-left custom-icon-text"
-            >
-               Voluntary Medical <br>
-               Male Circumcision
-            </span>
-            <span class="text-muted font-weight-bold mt-1 custom-icon-text" id="valueSix">$69</span>
-            
-            </div>
-          </div>
-        </div>
-
-
-
-
-  <div class="col-md-12 custom-icon-container">
-          <div
-            class="w-100    d-flex flex-row justify-content-around align-items-center grow"
-          >
-            <div class="d-flex flex-row justify-content-center align-items-center p-3">
-            <img
-              src="/static/SVG/7.svg"
-              class="custom-vector-image "
-            
-            />
-           </div>
-            <div class="d-flex flex-column  w-75">
-            <span
-              class="font-weight-bold text-dark text-left custom-icon-text"
-            >
-            Female Condoms
-            </span>
-            <span class="text-muted font-weight-bold mt-1 custom-icon-text" id="valueSeven">$78</span>
-            
-            </div>
-          </div>
-        </div>
-
-
-
-
-
-
-
       </div>
-      <!--  -->
-
-      <!--  -->
     </div>
-        </div>
-      </div>
-
 
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -403,6 +403,9 @@ padding-left:20px;
 
         // create bar chart
         var chart = anychart.column();
+        // turn on X Scroller
+        chart.xScroller(true);
+    chart.yScroller(true);
 
         // turn on chart animation
         chart.animation(true);
@@ -410,9 +413,6 @@ padding-left:20px;
         // set container id for the chart
         chart.container("container");
         chart.padding([10, 40, 5, 20]);
-
-        // set scale minimum
-        chart.yScale().minimum(0);
 
         // force chart to stack values by Y scale.
         chart.yScale().stackMode("value");
@@ -430,11 +430,11 @@ padding-left:20px;
         labels.fontColor("#808080");
         labels.fontWeight("bold");
         labels.useHtml(false);
-    //    var xLabelsBackground = chart.xAxis().labels().background();
-    //    xLabelsBackground.enabled(true);
-     //   xLabelsBackground.stroke("#cecece");
+        //    var xLabelsBackground = chart.xAxis().labels().background();
+        //    xLabelsBackground.enabled(true);
+        //   xLabelsBackground.stroke("#cecece");
         //xLabelsBackground.cornerType("round");
-       // xLabelsBackground.corners(5);
+        // xLabelsBackground.corners(5);
 
         //End Style X Axis
 
@@ -454,9 +454,9 @@ padding-left:20px;
             // if the value is greater
             if (value > avg) {
               label.fontFamily("Courier");
-        label.fontSize(12);
-        label.fontColor("#808080");
-        label.fontWeight("bold");
+              label.fontSize(12);
+              label.fontColor("#808080");
+              label.fontWeight("bold");
               label.draw();
             }
           }
@@ -464,23 +464,28 @@ padding-left:20px;
         //End Style Y Axis
         // set titles for axises
         chart.xAxis().title("Years");
-        chart.yAxis().title("Investment in Millions");
+        chart.yAxis().title("Investment in Millions ( USD )");
 
-var title = chart.tooltip().title();
-title.fontColor("#973490");
-title.fontWeight("bold");
-title.fontSize(18);
+        var title = chart.tooltip().title();
+        title.fontColor("#973490");
+       // title.fontWeight("bold");
+        title.fontSize(18);
+        
 
-chart.tooltip().background().fill("#fff");
-chart.tooltip().fontColor("#000");
-chart.tooltip().fontWeight("bold");
-chart.tooltip().hAlign('right');
-
-
+        chart.tooltip().fontColor("#000");
+           chart.tooltip().displayMode("union");
+       // chart.tooltip().fontWeight("bold");
+       // chart.tooltip().hAlign("left");
+       //  chart.tooltip().vAlign("left");
+         chart.tooltip().useHtml(true);  
+          chart.tooltip().titleFormat('<span class="font-weight-bold "style="margin-top:20px!important;">{%x}</span>')
+          chart.tooltip().format(' <span>{%seriesName}</span> <span class="float-right">${%value}</span>');
+        chart.tooltip().background().fill("#fff");
         // helper function to setup label settings for all series
         var setupSeriesLabels = function (series, name) {
           series.name(name);
-          series.tooltip().valuePrefix("$");
+         // series.tooltip().valuePrefix("$").hAlign("right");
+        
           series.stroke("3 #fff 1");
           // series.hovered().stroke('3 #fff 1');
         };
@@ -498,7 +503,7 @@ chart.tooltip().hAlign('right');
         series1.selected().fill("#973490", 0.5);
         series1.normal().stroke("#973490", 1, "10 5", "round");
         series1.hovered().stroke("#973490", 1, "10 5", "round");
-        series1.selected().stroke("#973490", 2, "10 5", "round");
+        series1.selected().stroke("#973490", 1.2, "10 5", "round");
         setupSeriesLabels(series1, "Preventive Vaccines");
 
         // create second series with mapped data
@@ -508,7 +513,7 @@ chart.tooltip().hAlign('right');
         series2.selected().fill("#b8428c", 0.5);
         series2.normal().stroke("#b8428c", 1, "10 5", "round");
         series2.hovered().stroke("#b8428c", 1, "10 5", "round");
-        series2.selected().stroke("#b8428c", 2, "10 5", "round");
+        series2.selected().stroke("#b8428c", 1.2, "10 5", "round");
         setupSeriesLabels(series2, "Microbicides");
 
         // create third series with mapped data
@@ -518,7 +523,7 @@ chart.tooltip().hAlign('right');
         series3.selected().fill("#db5087", 0.5);
         series3.normal().stroke("#db5087", 1, "10 5", "round");
         series3.hovered().stroke("#db5087", 1, "10 5", "round");
-        series3.selected().stroke("#db5087", 2, "10 5", "round");
+        series3.selected().stroke("#db5087", 1.2, "10 5", "round");
         setupSeriesLabels(series3, "Vertical Transmission Prevention");
 
         // create fourth series with mapped data
@@ -528,7 +533,7 @@ chart.tooltip().hAlign('right');
         series4.selected().fill("#e96a8d", 0.5);
         series4.normal().stroke("#e96a8d", 1, "10 5", "round");
         series4.hovered().stroke("#e96a8d", 1, "10 5", "round");
-        series4.selected().stroke("#e96a8d", 2, "10 5", "round");
+        series4.selected().stroke("#e96a8d", 1.2, "10 5", "round");
         setupSeriesLabels(series4, "Pre-Exposure Prophylaxis");
 
         // create fourth series with mapped data
@@ -538,7 +543,7 @@ chart.tooltip().hAlign('right');
         series5.selected().fill("#ee8b97", 0.5);
         series5.normal().stroke("#ee8b97", 1, "10 5", "round");
         series5.hovered().stroke("#ee8b97", 1, "10 5", "round");
-        series5.selected().stroke("#ee8b97", 2, "10 5", "round");
+        series5.selected().stroke("#ee8b97", 1.2, "10 5", "round");
         setupSeriesLabels(series5, "Treatment as Prevention");
 
         // create fourth series with mapped data
@@ -548,7 +553,7 @@ chart.tooltip().hAlign('right');
         series6.selected().fill("#f3aca2", 0.5);
         series6.normal().stroke("#f3aca2", 1, "10 5", "round");
         series6.hovered().stroke("#f3aca2", 1, "10 5", "round");
-        series6.selected().stroke("#f3aca2", 2, "10 5", "round");
+        series6.selected().stroke("#f3aca2", 1.2, "10 5", "round");
         setupSeriesLabels(series6, "Voluntary Medical Male Circumcision");
 
         // create fourth series with mapped data
@@ -558,13 +563,28 @@ chart.tooltip().hAlign('right');
         series7.selected().fill("#f9cdac", 0.5);
         series7.normal().stroke("#f9cdac", 1, "10 5", "round");
         series7.hovered().stroke("#f9cdac", 1, "10 5", "round");
-        series7.selected().stroke("#f9cdac", 2, "10 5", "round");
+        series7.selected().stroke("#f9cdac", 1.2, "10 5", "round");
         setupSeriesLabels(series7, "Female Condoms");
 
         // turn on legend
-        chart.legend().enabled(true).fontSize(13).padding([0, 0, 20, 0]);
+        var legend = chart.legend();
+        legend.enabled(true).fontSize(13).padding([0, 0, 80, 0]);
+        legend.positionMode("outside");
+        // set position and alignement
+        legend.position("top");
+        legend.align("center");
+        legend.itemsLayout("horizontalExpandable");
+
+        chart.legend().tooltip(true);
+
+        // enable the tooltip title
+        //chart.legend().tooltip().title(true);
+
+        // enable the tooltip separator
+        //chart.legend().tooltip().separator(true);
+
         chart.interactivity().hoverMode("by-x");
-        chart.tooltip().displayMode("union");
+     
         // initiate chart drawing
         chart.draw();
         // add a listener
@@ -581,13 +601,13 @@ chart.tooltip().hAlign('right');
           console.log(index);
           let valueFirst = parseInt(row[1]) * 1000000;
 
-          $("#valueFirst").html("$"+parseInt(row[1]) + "");
-          $("#valueSecond").html("$"+parseInt(row[2]) + "");
-          $("#valueThird").html("$"+parseInt(row[3]) + "");
-          $("#valueFourth").html("$"+parseInt(row[4]) + "");
-          $("#valueFive").html("$"+parseInt(row[5]) + "");
-          $("#valueSix").html("$"+parseInt(row[6]) + "");
-          $("#valueSeven").html("$"+parseInt(row[7]) + "");
+          $("#valueFirst").html("$" + parseInt(row[1]) + "");
+          $("#valueSecond").html("$" + parseInt(row[2]) + "");
+          $("#valueThird").html("$" + parseInt(row[3]) + "");
+          $("#valueFourth").html("$" + parseInt(row[4]) + "");
+          $("#valueFive").html("$" + parseInt(row[5]) + "");
+          $("#valueSix").html("$" + parseInt(row[6]) + "");
+          $("#valueSeven").html("$" + parseInt(row[7]) + "");
 
           $(".num").html("(" + row[0] + ")");
 
