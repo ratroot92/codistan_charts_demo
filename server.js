@@ -45,7 +45,7 @@ app.get('/header', function(req, res) {
 
 
 app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/2.html'));
+    res.sendFile(path.join(__dirname + '/HighChart2.html'));
 });
 app.get('/barchart', function(req, res) {
     res.sendFile(path.join(__dirname + '/BarChart.html'));
