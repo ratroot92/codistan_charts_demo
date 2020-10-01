@@ -45,12 +45,12 @@ app.get('/header', function(req, res) {
 
 
 app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/AnyChart.html'));
+    res.sendFile(path.join(__dirname + '/2.html'));
 });
 app.get('/barchart', function(req, res) {
     res.sendFile(path.join(__dirname + '/BarChart.html'));
 });
-app.get('/highchart', function(req, res) {
+app.get('/world-map', function(req, res) {
     res.sendFile(path.join(__dirname + '/HighChart2.html'));
 });
 
